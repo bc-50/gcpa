@@ -1,22 +1,22 @@
 <?php
 
-/* function testimonial_post_type_func() {
-  // Testimonial Post Type
-  register_post_type('Testimonial', array(
+function sponsor_post_type_func() {
+  // Sponsor Post Type
+  register_post_type('sponsors', array(
     //Most of the visual stuff in labels array
       'labels' => array(
-        'name' => 'Testimonials',
-        'add_new_item' => 'Add New Testimonial',
-        'edit_item' => 'Edit Testimonials',
-        'all_items' => 'All Testimonials',
-        'singular_name' => 'Testimonial'
+        'name' => 'Sponsors',
+        'add_new_item' => 'Add New Sponsor',
+        'edit_item' => 'Edit Sponsors',
+        'all_items' => 'All Sponsors',
+        'singular_name' => 'Sponsor'
       ),
-      'supports' => array('title', 'editor', 'excerpt'),
+      'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
       'public' => true,
-      'menu_icon' => 'dashicons-format-quote',
+      'menu_icon' => 'dashicons-admin-users',
       'has_archive' => false,
       'map_meta_cap' => true        //wordpress applies role permission when needed
     ));
   }
   
-  add_action( 'init', 'testimonial_post_type_func' ); */
+  add_action( 'init', 'sponsor_post_type_func' );

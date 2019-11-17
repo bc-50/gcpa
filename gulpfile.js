@@ -10,7 +10,7 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify');
 
 
-var url = 'http://localhost/williams-new';
+var url = 'http://localhost/gcpa';
 
 gulp.task('watch', function () {
   browserSync.init({
