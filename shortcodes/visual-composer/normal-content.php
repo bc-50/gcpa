@@ -14,7 +14,7 @@ function plain_content_func($atts, $content = null){
   $a_target = ($link['target'] == '') ? '' : 'target="'.$link['target'].'"';
   ob_start() ?>
 
-    <section class="normal-text pad-link">
+    <section class="normal-text pad-link <?php echo isset($title_t) || isset($title_b) ? 'temp-fix' : '' ?>">
       <?php if (isset($title_t) || isset($title_b)) { ?>
         <div class="title-wrapper">
         <h2><?php echo $title_t ?></h2>

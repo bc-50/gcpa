@@ -27,7 +27,234 @@
   }
 }
 
-
-.add-cart{
+.add-cart {
   cursor: pointer;
+}
+
+/* Members Area */
+.woocommerce-MyAccount-navigation {
+  width: 30%;
+  order: 1;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    .nav-item {
+      margin: 2% 0;
+      @include button(#15296B, #15296B);
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      a {
+        width: 100%;
+        text-align: left;
+        padding: 4.5%;
+        border-width: 1px;
+        font-size: 1.25em;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+
+      &.is-active {
+        a {
+          color: #ffffff;
+          background-color: #15296B;
+        }
+      }
+    }
+  }
+}
+
+.my-dasboard {
+
+
+  p {
+    color: #15296B;
+    font-size: 1.5em;
+
+    a {
+      color: #15296B;
+    }
+
+    &:nth-of-type(2n) {
+      font-size: 0.875em;
+    }
+  }
+}
+
+.my-account {
+  padding: 7.8% 0;
+
+  &:not(.dashboard) {
+    display: flex;
+
+    .account-content {
+      order: 2;
+      width: 48.7%;
+      background-color: rgba(99, 99, 99, .1);
+      padding: 3.3% 4%;
+
+      h2 {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #15296B;
+        font-size: 1.5em;
+        margin-bottom: 7.5%;
+      }
+
+      h3 {
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #15296B;
+        font-size: 1.125em;
+        margin: 6% 0 3%;
+      }
+
+      /* Orders */
+
+      .order-list {
+
+
+        .order-item {
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            label {
+              font-size: 0.875em;
+              color: #15296B;
+              margin-bottom: 0;
+            }
+
+            li {
+
+              &:not(:last-of-type) {
+                border: 2px solid #15296B;
+                margin-bottom: 10px;
+                padding: 2.5%;
+
+                * {
+                  color: #15296B;
+                  font-size: 0.875em;
+                }
+              }
+
+
+            }
+          }
+        }
+      }
+    }
+
+    .button-wrapper {
+      @include button(#86C846, #86C846);
+      justify-content: flex-start;
+    }
+
+    justify-content: space-between;
+
+    .carousel-control-next,
+    .carousel-control-prev {
+      width: 7%;
+
+      i {
+        color: #15296B;
+        font-size: 24px;
+      }
+    }
+
+    .carousel-control-prev {
+      left: -40px;
+    }
+
+    .carousel-control-next {
+      right: -40px;
+    }
+
+    /* Edit Account */
+
+    form {
+      .button-wrapper {
+        margin-top: 5.5%;
+      }
+
+      .form-row {
+        padding: 0;
+        flex-direction: column;
+
+        .selection {
+          .select2-selection--single {
+            background: none;
+            border: 2px solid #15296B;
+          }
+
+
+        }
+
+        input.input-text {
+          background: none;
+          border: 2px solid #15296B;
+          color: #15296B;
+          padding: 4.5%;
+          max-height: 41px;
+        }
+
+        label {
+          line-height: 1.8;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  /* Address */
+
+  &.edit-address {
+
+    .account-content {
+      padding: 3.3% 6%;
+
+    }
+
+    address {
+      color: #636363;
+      font-weight: 500;
+    }
+
+    address+a {
+      color: #15296B;
+      font-weight: 700;
+      font-size: 0.875em;
+      display: inline-block;
+      margin-bottom: 7%;
+      border-bottom: 1px solid #636363;
+
+      &:hover {
+        color: #15296B;
+        text-decoration: none;
+      }
+    }
+
+    .used-checkout {
+      color: #15296B;
+      font-weight: 700;
+      font-size: 0.875em;
+    }
+  }
+
+}
+
+.select2-search--dropdown {
+  background: none;
+  border: 2px solid #15296B;
+
+  .select2-search__field {
+    border: none;
+  }
 }

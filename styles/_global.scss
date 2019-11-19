@@ -9,6 +9,8 @@ li,
 a,
 span {
   font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+
 }
 
 
@@ -38,7 +40,8 @@ span {
   justify-content: center;
 
   a,
-  div {
+  div,
+  button {
     color: $tcolor;
     border: 2px solid $bcolor;
     text-transform: uppercase;
@@ -49,7 +52,7 @@ span {
 
     &:hover {
       background-color: $tcolor;
-      color: $bcolor;
+      color: #fff;
       text-decoration: none;
     }
   }

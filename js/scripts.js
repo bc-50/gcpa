@@ -44,7 +44,7 @@ $(function () {
 
   }
 
-  function add_to_cart(data){
+  function add_to_cart(data) {
     $.ajax({
       type: "POST",
       dataType: "html",
@@ -70,6 +70,8 @@ $(function () {
     var target = e.target;
     $(target).attr("disabled", true); // Disable the button, temp.
     add_to_cart($(target).data('cart'));
-    
+
   });
+
+
 });

@@ -168,6 +168,7 @@
       color: #15296B;
       font-weight: 700;
       padding-right: 4%;
+      margin: 0;
     }
   }
 
@@ -214,6 +215,95 @@
 
         line-height: 18px;
         font-size: .875em;
+      }
+    }
+  }
+}
+
+.book-tickets {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+
+  .main-book {
+    width: 88%;
+    padding: 5% 5.7% 0;
+    background: linear-gradient(171deg, #15296B 27%, rgba(99, 99, 99, .1) 27.3%);
+
+    .title-wrapper {
+      margin-bottom: 78px;
+
+      h2 {
+        color: #86C846;
+        padding: 0;
+        margin-bottom: 6px;
+      }
+    }
+
+    .tribe-tickets-form-row {
+      margin: 5% 0;
+    }
+
+    .tribe-events-tickets {
+      background: transparent;
+
+      tr:not(:first-child) {
+        border: none;
+      }
+
+      td {
+        vertical-align: top;
+        padding: 0px 10px;
+
+        &.tickets_name {
+          max-width: 167px;
+          color: #15296B;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        &.tickets_price {
+          color: #15296B;
+          font-size: 14px;
+          font-style: normal;
+        }
+      }
+
+      td.woocommerce {
+        border: none;
+        padding: 0;
+
+        input[type=number] {
+          max-width: 49px;
+          background: none;
+          border: 1px solid #707070;
+        }
+
+        &.add-to-cart {
+          padding: 11% 0;
+        }
+      }
+
+      .tribe-tickets-remaining {
+        display: none;
+      }
+
+      .button-wrapper {
+        @include button(#86C846, #86C846);
+        justify-content: flex-start;
+
+        button {
+          background-color: transparent;
+          margin: 0 !important;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+
+        .woocommerce.add-to-cart button.tribe-button {
+          border-radius: 0px;
+        }
       }
     }
   }

@@ -10,7 +10,7 @@
 
 <body>
 
-<header style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo tribe_is_event_query() ? get_theme_file_uri('imgs/events.jpg') : get_field('header_image') ?>)">
+<header class="main" style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo tribe_is_event_query() ? get_theme_file_uri('imgs/events.jpg') : get_field('header_image') ?>)">
   <div class="container">
     <div class="row menu">
       <div class="col">
@@ -92,7 +92,7 @@
       <div class="row button-row">
         <div class="col-lg-4">
           <div class="button-wrapper">
-            <a href="#">Find Care</a>
+            <a href="<?php echo esc_url(site_url('find-care')) ?>">Find Care</a>
           </div>
         </div>
       </div>

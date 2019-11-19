@@ -1,10 +1,12 @@
 header {
-  background-size: cover;
-  background-position: center center;
-  padding: 0 0 56px;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  &.main {
+    background-size: cover;
+    background-position: center center;
+    padding: 0 0 56px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
 
   .menu {
     padding: 3% 0;
@@ -150,6 +152,10 @@ header {
           align-items: center;
           justify-content: space-between;
           padding: 9px 33px;
+
+          &:hover {
+            color: #86c846;
+          }
         }
       }
     }

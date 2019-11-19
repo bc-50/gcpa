@@ -203,6 +203,7 @@ add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields', 1
 function wc_new_order_column( $columns ) {
   $columns['my_column'] = 'My column';
   $columns['my_column2'] = 'My column2';
+  $column['order-number'] = 'Order Number';
   return $columns;
 }
 add_filter( 'manage_edit-shop_order_columns', 'wc_new_order_column' );
@@ -218,3 +219,25 @@ function sv_wc_cogs_add_order_profit_column_content( $column ) {
 }
 
 add_action( 'manage_shop_order_posts_custom_column', 'sv_wc_cogs_add_order_profit_column_content' );
+
+function my_account_menu_order() {
+  $menuOrder = array(
+    'dashboard'          => __( 'Dashboard', 'woocommerce' ),
+    'orders'             => __( 'Orders', 'woocommerce' ),
+    'edit-address'       => __( 'Addresses', 'woocommerce' ),
+    'edit-account'    	=> __( 'Account Details', 'woocommerce' ),
+    'customer-logout'    => __( 'Logout', 'woocommerce' ),
+  );
+  return $menuOrder;
+}
+add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
+
+
+function new_orders_columns( $columns = array() ) {
+
+  $columns['order-number'] = __( 'Order Number', 'Text Domain' );
+  $columns['order-date'] = __( 'Order Date', 'Text Domain' );
+
+  return $columns;
+}
+add_filter( 'woocommerce_account_orders_columns', 'new_orders_columns' );

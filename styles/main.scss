@@ -16,7 +16,8 @@
     width: 50%;
   }
 
-  .pad-link {
+  .pad-link,
+  .pad-link.temp-fix {
     padding: 75px 0 61px;
   }
 
@@ -502,6 +503,64 @@
         font-weight: 700;
         text-transform: uppercase;
         color: #15296b;
+      }
+    }
+  }
+}
+
+form {
+  .button-wrapper {
+    margin-top: 5.5%;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .woocommerce-additional-fields {
+    padding: 4.5% 0;
+
+    h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #15296B;
+      font-size: 1.5em;
+      margin-bottom: 2%;
+    }
+  }
+
+  .woocommerce-billing-fields {
+    h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #15296B;
+      font-size: 1.5em;
+      margin-bottom: 5%;
+    }
+
+    .form-row {
+      padding: 0;
+      flex-direction: column;
+
+      .selection {
+        .select2-selection--single {
+          background: none;
+          border: 2px solid #15296B;
+        }
+      }
+
+      input.input-text {
+        background: none;
+        border: 2px solid #15296B;
+        color: #15296B;
+        padding: 1%;
+        max-height: 41px;
+        margin-bottom: 7%;
+      }
+
+      label {
+        line-height: 1.8;
+        margin: 0;
       }
     }
   }
