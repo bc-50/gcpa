@@ -1,15 +1,21 @@
+html {
+  font-size: 1.1em; }
+
 body h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-li,
-a,
-span {
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body p,
+body li,
+body a,
+body span {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500; }
+
+.lbg {
+  background-color: rgba(237, 237, 237, 0.5); }
 
 .seperator-wrapper {
   margin: 15px 0;
@@ -141,7 +147,8 @@ header .gradient-header {
         font-weight: 500;
         padding: 10px 30px;
         transition: all 0.4s ease-in-out;
-        text-align: center; }
+        text-align: center;
+        background: none; }
         header .gradient-header .logo-row .members-button a:hover,
         header .gradient-header .logo-row .members-button div:hover,
         header .gradient-header .logo-row .members-button button:hover {
@@ -150,7 +157,7 @@ header .gradient-header {
           text-decoration: none; }
       header .gradient-header .logo-row .members-button a {
         min-width: 225px;
-        width: 81.5%;
+        width: 89.5%;
         font-size: 1.25em;
         display: flex;
         align-items: center;
@@ -215,7 +222,8 @@ header .button-row {
       font-weight: 500;
       padding: 10px 30px;
       transition: all 0.4s ease-in-out;
-      text-align: center; }
+      text-align: center;
+      background: none; }
       header .button-row .button-wrapper a:hover,
       header .button-row .button-wrapper div:hover,
       header .button-row .button-wrapper button:hover {
@@ -224,8 +232,10 @@ header .button-row {
         text-decoration: none; }
     header .button-row .button-wrapper a {
       border-width: 3px;
-      max-width: 190px;
+      max-width: 200px;
       width: 80%; }
+      header .button-row .button-wrapper a:hover {
+        color: #86c846; }
 
 footer {
   padding: 3.8% 0 1.84%;
@@ -250,7 +260,8 @@ footer {
       font-weight: 500;
       padding: 10px 30px;
       transition: all 0.4s ease-in-out;
-      text-align: center; }
+      text-align: center;
+      background: none; }
       footer .button-wrapper a:hover,
       footer .button-wrapper div:hover,
       footer .button-wrapper button:hover {
@@ -299,7 +310,7 @@ footer {
           margin: 0 21px; }
 
 .up-events {
-  background-color: #ededed;
+  background-color: rgba(237, 237, 237, 0.5);
   padding: 3.8% 0;
   /*   .col-lg-3 {
     &:first-of-type {
@@ -396,15 +407,14 @@ footer {
             font-weight: 500;
             padding: 10px 30px;
             transition: all 0.4s ease-in-out;
-            text-align: center; }
+            text-align: center;
+            background: none; }
             .up-events .event-wrapper .event-info .text-content .button-wrapper a:hover,
             .up-events .event-wrapper .event-info .text-content .button-wrapper div:hover,
             .up-events .event-wrapper .event-info .text-content .button-wrapper button:hover {
               background-color: #86c846;
               color: #fff;
               text-decoration: none; }
-          .up-events .event-wrapper .event-info .text-content .button-wrapper a:hover {
-            color: #fff; }
 
 .button-row {
   margin: 3.6% -15px; }
@@ -420,7 +430,8 @@ footer {
       font-weight: 500;
       padding: 10px 30px;
       transition: all 0.4s ease-in-out;
-      text-align: center; }
+      text-align: center;
+      background: none; }
       .button-row .button-wrapper a:hover,
       .button-row .button-wrapper div:hover,
       .button-row .button-wrapper button:hover {
@@ -433,46 +444,62 @@ footer {
       width: 88%;
       font-size: 1.25em;
       padding: 4px 30px; }
-      .button-row .button-wrapper a:hover,
-      .button-row .button-wrapper div:hover {
-        color: #fff; }
 
-.single-event .title-wrapper h2 {
-  text-transform: uppercase;
-  font-size: 1.5em;
-  color: #15296B;
-  font-weight: 700;
-  padding-right: 4%;
-  margin: 0; }
-
-.single-event .main-content .details {
-  position: relative; }
-  .single-event .main-content .details .text-wrapper {
-    margin: 8.6% 0; }
-    .single-event .main-content .details .text-wrapper h3 {
-      margin: 0;
+.single-event {
+  padding: 3.6% 0 2.3%; }
+  .single-event .title-wrapper h2 {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    color: #15296B;
+    font-weight: 700;
+    padding-right: 4%;
+    margin: 0; }
+  .single-event .main-content .details {
+    position: relative; }
+    .single-event .main-content .details .text-wrapper {
+      margin: 8.6% 0;
+      width: 40%; }
+      .single-event .main-content .details .text-wrapper h3 {
+        margin: 0;
+        font-size: 1.125em;
+        color: #86C846;
+        font-weight: 700;
+        text-transform: uppercase; }
+      .single-event .main-content .details .text-wrapper p {
+        margin: 0;
+        font-size: 1.125em;
+        color: #15296B;
+        font-weight: 700; }
+    .single-event .main-content .details .image-wrapper {
+      position: absolute;
+      top: 0;
+      right: 0;
+      overflow: hidden;
+      max-width: 308px;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; }
+  .single-event .main-content .event-info p {
+    line-height: 18px;
+    font-size: .875em; }
+    .single-event .main-content .event-info p:first-of-type {
+      width: 39.1%; }
+  .single-event .map-wrapper {
+    background-color: rgba(99, 99, 99, 0.1);
+    padding: 7% 3% 3%;
+    margin: 8% 0; }
+    .single-event .map-wrapper p {
+      display: flex;
       font-size: 1.125em;
-      color: #86C846;
       font-weight: 700;
-      text-transform: uppercase; }
-    .single-event .main-content .details .text-wrapper p {
-      margin: 0;
-      font-size: 1.125em;
-      color: #15296B;
-      font-weight: 700; }
-  .single-event .main-content .details .image-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    overflow: hidden;
-    max-width: 308px;
-    width: 100%; }
-
-.single-event .main-content .event-info p {
-  line-height: 18px;
-  font-size: .875em; }
-  .single-event .main-content .event-info p:first-of-type {
-    width: 39.1%; }
+      color: #15296B; }
+      .single-event .map-wrapper p::before {
+        content: url("../imgs/pin.png");
+        margin: auto 22px auto 10px; }
+    .single-event .map-wrapper iframe {
+      width: 100%;
+      min-height: 309px;
+      border: 5px solid #fff; }
 
 .book-tickets {
   font-family: 'Montserrat', sans-serif;
@@ -530,7 +557,8 @@ footer {
           font-weight: 500;
           padding: 10px 30px;
           transition: all 0.4s ease-in-out;
-          text-align: center; }
+          text-align: center;
+          background: none; }
           .book-tickets .main-book .tribe-events-tickets .button-wrapper a:hover,
           .book-tickets .main-book .tribe-events-tickets .button-wrapper div:hover,
           .book-tickets .main-book .tribe-events-tickets .button-wrapper button:hover {
@@ -540,8 +568,6 @@ footer {
         .book-tickets .main-book .tribe-events-tickets .button-wrapper button {
           background-color: transparent;
           margin: 0 !important; }
-          .book-tickets .main-book .tribe-events-tickets .button-wrapper button:hover {
-            color: #fff; }
         .book-tickets .main-book .tribe-events-tickets .button-wrapper .woocommerce.add-to-cart button.tribe-button {
           border-radius: 0px; }
 
@@ -590,7 +616,8 @@ footer {
         font-weight: 500;
         padding: 10px 30px;
         transition: all 0.4s ease-in-out;
-        text-align: center; }
+        text-align: center;
+        background: none; }
         .woocommerce-MyAccount-navigation ul .nav-item a:hover,
         .woocommerce-MyAccount-navigation ul .nav-item div:hover,
         .woocommerce-MyAccount-navigation ul .nav-item button:hover {
@@ -605,8 +632,6 @@ footer {
         padding: 4.5%;
         border-width: 1px;
         font-size: 1.25em; }
-        .woocommerce-MyAccount-navigation ul .nav-item a:hover {
-          color: #fff; }
       .woocommerce-MyAccount-navigation ul .nav-item.is-active a {
         color: #ffffff;
         background-color: #15296B; }
@@ -672,7 +697,8 @@ footer {
         font-weight: 500;
         padding: 10px 30px;
         transition: all 0.4s ease-in-out;
-        text-align: center; }
+        text-align: center;
+        background: none; }
         .my-account:not(.dashboard) .button-wrapper a:hover,
         .my-account:not(.dashboard) .button-wrapper div:hover,
         .my-account:not(.dashboard) .button-wrapper button:hover {
@@ -733,6 +759,100 @@ footer {
   .select2-search--dropdown .select2-search__field {
     border: none; }
 
+.gallery-head {
+  background-size: cover;
+  background-position: center center; }
+  .gallery-head.small {
+    padding: 270px 0 7%; }
+  .gallery-head.large {
+    padding: 270px 0; }
+  .gallery-head .row {
+    justify-content: center; }
+    .gallery-head .row .image-wrapper img {
+      max-width: 100%; }
+
+.image-gallery {
+  padding: 1.5% 0 7%;
+  background-size: cover;
+  background-position: center center;
+  /* .gallery-column {
+    display: none;
+  } */ }
+  .image-gallery .title-wrapper {
+    margin: 5.7% 0; }
+    .image-gallery .title-wrapper img {
+      max-width: 100%; }
+  .image-gallery .single-gallery-image {
+    background-size: cover;
+    background-position: center center;
+    padding: 37%;
+    border: 2px solid #fff;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    margin: 15px 0; }
+    @media (max-width: 767px) {
+      .image-gallery .single-gallery-image {
+        padding: 29%; } }
+  .image-gallery .load-row-wheel,
+  .image-gallery .load-row-detailing {
+    justify-content: center; }
+    .image-gallery .load-row-wheel .btn-wrapper,
+    .image-gallery .load-row-detailing .btn-wrapper {
+      display: flex;
+      justify-content: center; }
+      .image-gallery .load-row-wheel .btn-wrapper .load,
+      .image-gallery .load-row-detailing .btn-wrapper .load {
+        text-align: center;
+        cursor: pointer; }
+
+.gallery-pop-up {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.7); }
+  .gallery-pop-up .inner-pop {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%);
+    width: 40%;
+    height: 50%;
+    background-color: #313030;
+    display: flex;
+    align-items: center;
+    border-radius: .45em;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+    position: absolute; }
+    .gallery-pop-up .inner-pop .close-btn {
+      position: absolute;
+      right: -1%;
+      top: -1%;
+      opacity: 1;
+      color: #fff;
+      background-color: #58C96E;
+      font-size: 17px;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 1em;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: -1px 1px 3px #000; }
+    .gallery-pop-up .inner-pop .pop-content {
+      padding: 3%;
+      width: 100%;
+      height: 100%; }
+      .gallery-pop-up .inner-pop .pop-content img {
+        width: 100%;
+        height: 100%; }
+
 .container-wrapper {
   display: flex; }
   .container-wrapper > :nth-child(odd) {
@@ -770,15 +890,14 @@ footer {
     font-weight: 500;
     padding: 10px 30px;
     transition: all 0.4s ease-in-out;
-    text-align: center; }
+    text-align: center;
+    background: none; }
     .normal-text .norm-button-wrapper a:hover,
     .normal-text .norm-button-wrapper div:hover,
     .normal-text .norm-button-wrapper button:hover {
       background-color: #15296B;
       color: #fff;
       text-decoration: none; }
-  .normal-text .norm-button-wrapper a:hover {
-    color: #fff; }
 
 .angle-container {
   display: flex;
@@ -934,15 +1053,14 @@ footer {
         font-weight: 500;
         padding: 10px 30px;
         transition: all 0.4s ease-in-out;
-        text-align: center; }
+        text-align: center;
+        background: none; }
         .green-content .inner-wrapper .button-wrapper a:hover,
         .green-content .inner-wrapper .button-wrapper div:hover,
         .green-content .inner-wrapper .button-wrapper button:hover {
           background-color: #86C846;
           color: #fff;
           text-decoration: none; }
-      .green-content .inner-wrapper .button-wrapper a:hover {
-        color: #fff; }
 
 .toggle-content {
   position: relative;
@@ -1087,41 +1205,91 @@ footer {
     text-transform: uppercase;
     color: #15296b; }
 
-form .button-wrapper {
-  margin-top: 5.5%; }
-
-form .form-row {
-  flex-direction: column; }
-
-form .woocommerce-additional-fields {
-  padding: 4.5% 0; }
-  form .woocommerce-additional-fields h3 {
+form {
+  /* .woocommerce-billing-fields { */
+  /* } */ }
+  form .button-wrapper {
+    margin-top: 5.5%; }
+  form .form-row {
+    flex-direction: column; }
+  form .woocommerce-additional-fields {
+    padding: 4.5% 0; }
+    form .woocommerce-additional-fields h3 {
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #15296B;
+      font-size: 1.5em;
+      margin-bottom: 2%; }
+  form h3 {
     text-transform: uppercase;
     font-weight: 700;
     color: #15296B;
     font-size: 1.5em;
-    margin-bottom: 2%; }
+    margin-bottom: 5%; }
+  form .form-row {
+    padding: 0;
+    flex-direction: column; }
+    form .form-row .selection .select2-selection--single {
+      background: none;
+      border: 2px solid #15296B; }
+    form .form-row input.input-text {
+      background: none;
+      border: 2px solid #15296B;
+      color: #15296B;
+      padding: 1%;
+      max-height: 41px;
+      margin-bottom: 7%;
+      height: 41px; }
+    form .form-row label {
+      line-height: 1.8;
+      margin: 0; }
 
-form .woocommerce-billing-fields h3 {
-  text-transform: uppercase;
-  font-weight: 700;
-  color: #15296B;
-  font-size: 1.5em;
-  margin-bottom: 5%; }
-
-form .woocommerce-billing-fields .form-row {
-  padding: 0;
-  flex-direction: column; }
-  form .woocommerce-billing-fields .form-row .selection .select2-selection--single {
-    background: none;
-    border: 2px solid #15296B; }
-  form .woocommerce-billing-fields .form-row input.input-text {
-    background: none;
-    border: 2px solid #15296B;
-    color: #15296B;
-    padding: 1%;
-    max-height: 41px;
-    margin-bottom: 7%; }
-  form .woocommerce-billing-fields .form-row label {
-    line-height: 1.8;
-    margin: 0; }
+/* Login */
+.user-login {
+  background-color: rgba(237, 237, 237, 0.5);
+  padding: 3.7% 0 5.5%; }
+  .user-login #customer_login .form-wrapper {
+    background-color: rgba(99, 99, 99, 0.1);
+    padding: 8% 9.2%; }
+    .user-login #customer_login .form-wrapper h2 {
+      color: #15296B;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.5em;
+      margin-bottom: 16px; }
+      .user-login #customer_login .form-wrapper h2:last-of-type {
+        color: #86C846; }
+    .user-login #customer_login .form-wrapper form {
+      margin: 0; }
+      .user-login #customer_login .form-wrapper form .button-wrapper {
+        display: flex;
+        justify-content: center;
+        justify-content: flex-start;
+        margin-top: 0; }
+        .user-login #customer_login .form-wrapper form .button-wrapper a,
+        .user-login #customer_login .form-wrapper form .button-wrapper div,
+        .user-login #customer_login .form-wrapper form .button-wrapper button {
+          color: #86C846;
+          border: 2px solid #86C846;
+          text-transform: uppercase;
+          font-weight: 500;
+          padding: 10px 30px;
+          transition: all 0.4s ease-in-out;
+          text-align: center;
+          background: none; }
+          .user-login #customer_login .form-wrapper form .button-wrapper a:hover,
+          .user-login #customer_login .form-wrapper form .button-wrapper div:hover,
+          .user-login #customer_login .form-wrapper form .button-wrapper button:hover {
+            background-color: #86C846;
+            color: #fff;
+            text-decoration: none; }
+        .user-login #customer_login .form-wrapper form .button-wrapper button {
+          min-width: 160px;
+          padding: 2.5% 0; }
+      .user-login #customer_login .form-wrapper form .woocommerce-privacy-policy-text {
+        font-size: 10px;
+        color: #636363;
+        margin-top: 8%; }
+  .user-login #customer_login form.login, .user-login #customer_login form.register {
+    border: none;
+    padding: 0; }

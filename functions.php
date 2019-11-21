@@ -3,7 +3,9 @@ require_once('inc/custom-post-types.php');
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_template_directory() . '/inc/svg.php';
 error_reporting(E_ALL);
-    ini_set("display_errors", 1);
+ini_set("display_errors", 1);
+$GLOBAL['cart_links'] = array();
+
 
 
 
@@ -21,7 +23,8 @@ function theme_files()
     'ajaxurl' => admin_url( 'admin-ajax.php' ),
     'noposts' => __('No older posts found', 'event'),
   ));
-  
+  wp_enqueue_script('lazy', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
+  wp_enqueue_script('lazyplug', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
 
 
   /* fonts */
@@ -30,6 +33,24 @@ function theme_files()
 }
 
 add_action('wp_enqueue_scripts', 'theme_files');
+
+function misha_include_myuploadscript() {
+	/*
+	 * I recommend to add additional conditions just to not to load the scipts on each page
+	 * like:
+	 * if ( !in_array('post-new.php','post.php') ) return;
+	 */
+	if ( ! did_action( 'wp_enqueue_media' ) ) {
+		wp_enqueue_media();
+	}
+ 
+   wp_enqueue_script( 'myuploadscript', get_stylesheet_directory_uri() . '/js/scripts.min.js', array('jquery'), null, false );
+   wp_enqueue_script('lazy', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
+   wp_enqueue_script('lazyplug', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
+}
+ 
+add_action( 'admin_enqueue_scripts', 'misha_include_myuploadscript' );
+
 
 /* Extra theme support */
 function extra_theme_support()
@@ -58,7 +79,7 @@ function brace_autoload_shortcodes(){
     }
   }
 
-
+/* Ajax Functions */
 
   function more_post_ajax(){
 
@@ -117,7 +138,28 @@ function brace_autoload_shortcodes(){
 
 add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax');
 add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
+   
 
+/* function membership_selection(){
+  ?>
+  <!-- <script>
+    console.log('sss');
+  </script> -->
+  <?php
+  $info = (isset($_POST["info"])) ? $_POST["info"] : '';
+ $_GET["info"] = 'test';
+  $url = $GLOBAL['cart_links'][$info];
+  var_dump($GLOBAL['cart_links']);
+  header("Content-Type: text/html"); ?>
+  
+  <?php
+}
+add_action('wp_ajax_nopriv_membership_selection', 'membership_selection');
+add_action('wp_ajax_membership_selection', 'membership_selection'); */
+
+
+
+  /* More Form Fields */
 
 function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {
   if ( isset( $_POST['billing_first_name'] ) && empty( $_POST['billing_first_name'] ) ) {
@@ -241,3 +283,27 @@ function new_orders_columns( $columns = array() ) {
   return $columns;
 }
 add_filter( 'woocommerce_account_orders_columns', 'new_orders_columns' );
+
+function misha_image_uploader_field( $name, $value = '') {
+	$image = ' button">Upload image';
+	$image_size = 'full'; // it would be better to use thumbnail size here (150x150 or so)
+	$display = 'none'; // display state ot the "Remove image" button
+ 
+	if( $image_attributes = wp_get_attachment_image_src( $value, $image_size ) ) {
+ 
+		// $image_attributes[0] - image URL
+		// $image_attributes[1] - image width
+		// $image_attributes[2] - image height
+ 
+		$image = '"><img src="' . $image_attributes[0] . '" style="max-width:95%;display:block;" />';
+		$display = 'inline-block';
+ 
+	} 
+ 
+	return '
+	<div>
+		<a href="#" class="misha_upload_image_button' . $image . '</a>
+		<input type="hidden" name="' . $name . '" id="' . $name . '" value="' . esc_attr( $value ) . '" />
+		<a href="#" class="misha_remove_image_button" style="display:inline-block;display:' . $display . '">Remove image</a>
+	</div>';
+}

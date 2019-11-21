@@ -57,9 +57,9 @@
           <div class="col-lg-2">
             <div class="social">
               <ul>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/gcpagroup"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/gcpagroup/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/gloucestershirecareproviders "><i class="fab fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>
@@ -92,7 +92,7 @@
       <div class="row button-row">
         <div class="col-lg-4">
           <div class="button-wrapper">
-            <a href="<?php echo esc_url(site_url('find-care')) ?>">Find Care</a>
+            <a target="_blank" href="https://www.carechoices.co.uk/browse/south-west/gloucestershire/gloucester/?radius=30 ">Find Care</a>
           </div>
         </div>
       </div>

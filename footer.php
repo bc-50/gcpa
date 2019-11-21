@@ -48,9 +48,9 @@
         <div class="social">
           <h4>Connect With Us:</h4>
           <ul>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/gcpagroup/"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://twitter.com/gcpagroup"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.instagram.com/gloucestershirecareproviders "><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>

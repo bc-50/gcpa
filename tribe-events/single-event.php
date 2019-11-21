@@ -24,17 +24,24 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 
 $start_date_full = tribe_get_start_date();
 
-$at_position = strpos($start_date_full,'@');
+if (strpos($start_date_full,'@')) {
+	$at_position = strpos($start_date_full,'@');
 
-$time = substr($start_date_full,$at_position+1);
+	$time = substr($start_date_full,$at_position+1);
 
-$start_date = substr($start_date_full,0,$at_position);
+	$start_date = substr($start_date_full,0,$at_position);
 
-$at_position = strpos($start_date,',');
+	$at_position = strpos($start_date,',');
 
-$start_date = substr($start_date,0,$at_position);
+	$start_date = substr($start_date,0,$at_position);
+}else{
+	$start_date = $start_date_full;
 
-global $product;
+	$time = 'All Day';
+}
+$venue = tribe_get_venue_object();
+$venue_name = tribe_get_venue();
+$full_veneue = $venue_name . ',' . $venue->address . ', ' . $venue->state_province . ' ' . $venue->zip;
 
 ?>
 
@@ -53,24 +60,30 @@ global $product;
 								<h3>Details</h3>
 								<p>Date: <?php echo $start_date  ?></p>
 								<p>Time: <?php echo $time  ?></p>
-								<p>Venue: <?php echo tribe_get_venue () ?></p>
+								<p>Venue: <?php echo $venue_name ?></p>
 							</div>
 							<div class="image-wrapper">
 								<img src="<?php echo get_the_post_thumbnail_url(null, 'large') ?>" alt="">
 							</div>
-						</div>
-						<div class="event-info">
-							<?php echo wpautop(get_the_content()) ?>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="book-tickets">
-						<div class="main-book">
-							<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
+							<div class="event-info">
+								<?php echo wpautop(get_the_content()) ?>
+							</div>
 						</div>
 					</div>
+					<div class="map-wrapper">
+						<p><?php echo $full_veneue?></p>
+						<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo tribe_get_map_link(); ?>&output=embed"></iframe>
+					</div>
 				</div>
+				<?php if (tribe_events_has_tickets()) { ?>
+					<div class="col-lg-6">
+						<div class="book-tickets">
+							<div class="main-book">
+								<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
+							</div>
+						</div>
+					</div>
+				<?php } ?>
 			</div>
 		</div>
 	</section>

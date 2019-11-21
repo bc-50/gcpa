@@ -4,6 +4,7 @@
 @import 'form';
 @import 'events';
 @import 'membership';
+@import 'gallery';
 
 .container-wrapper {
   display: flex;
@@ -24,6 +25,7 @@
   .normal-text {
     padding: 0px 15px;
   }
+
 
 }
 
@@ -51,12 +53,6 @@
   .norm-button-wrapper {
     @include button(#15296B, #15296B);
     justify-content: flex-start;
-
-    a {
-      &:hover {
-        color: #fff;
-      }
-    }
   }
 }
 
@@ -267,11 +263,6 @@
     .button-wrapper {
       @include button(#86C846, #86C846);
 
-      a {
-        &:hover {
-          color: #fff;
-        }
-      }
     }
   }
 }
@@ -509,6 +500,7 @@
 }
 
 form {
+
   .button-wrapper {
     margin-top: 5.5%;
   }
@@ -529,38 +521,96 @@ form {
     }
   }
 
-  .woocommerce-billing-fields {
-    h3 {
-      text-transform: uppercase;
-      font-weight: 700;
-      color: #15296B;
-      font-size: 1.5em;
-      margin-bottom: 5%;
+  /* .woocommerce-billing-fields { */
+  h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #15296B;
+    font-size: 1.5em;
+    margin-bottom: 5%;
+  }
+
+  .form-row {
+    padding: 0;
+    flex-direction: column;
+
+    .selection {
+      .select2-selection--single {
+        background: none;
+        border: 2px solid #15296B;
+      }
     }
 
-    .form-row {
-      padding: 0;
-      flex-direction: column;
+    input.input-text {
+      background: none;
+      border: 2px solid #15296B;
+      color: #15296B;
+      padding: 1%;
+      max-height: 41px;
+      margin-bottom: 7%;
+      height: 41px;
+    }
 
-      .selection {
-        .select2-selection--single {
-          background: none;
-          border: 2px solid #15296B;
+    label {
+      line-height: 1.8;
+      margin: 0;
+    }
+  }
+
+  /* } */
+}
+
+/* Login */
+.user-login {
+  background-color: rgba(237, 237, 237, .5);
+  padding: 3.7% 0 5.5%;
+
+  #customer_login {
+
+    .form-wrapper {
+      background-color: rgba(99, 99, 99, 0.1);
+      padding: 8% 9.2%;
+
+      h2 {
+        color: #15296B;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.5em;
+        margin-bottom: 16px;
+
+        &:last-of-type {
+          color: #86C846;
         }
       }
 
-      input.input-text {
-        background: none;
-        border: 2px solid #15296B;
-        color: #15296B;
-        padding: 1%;
-        max-height: 41px;
-        margin-bottom: 7%;
-      }
-
-      label {
-        line-height: 1.8;
+      form {
         margin: 0;
+
+        .button-wrapper {
+          @include button(#86C846, #86C846);
+          justify-content: flex-start;
+          margin-top: 0;
+
+          button {
+            min-width: 160px;
+            padding: 2.5% 0;
+          }
+        }
+
+        .woocommerce-privacy-policy-text {
+          font-size: 10px;
+          color: #636363;
+          margin-top: 8%;
+        }
+      }
+    }
+
+    form {
+
+      &.login,
+      &.register {
+        border: none;
+        padding: 0;
       }
     }
   }

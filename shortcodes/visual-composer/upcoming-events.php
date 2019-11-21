@@ -86,6 +86,7 @@ function upcoming_func($atts, $content = null){
         </div>
       </div>
     </section>
+
   <?php
   $r= ob_get_clean();
   return $r;
