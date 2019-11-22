@@ -4,7 +4,6 @@ require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_template_directory() . '/inc/svg.php';
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-$GLOBAL['cart_links'] = array();
 
 
 

@@ -99,33 +99,53 @@ $(function () {
    */
   $('.misha_upload_image_button').on('click', function (e) {
     e.preventDefault();
+
+    if (custom_uploader) {
+      custom_uploader.open();
+      return;
+    }
+
     var button = $(this),
-      custom_uploader = wp.media({
+      custom_uploader = wp.media.frames.file_frame = wp.media({
         title: 'Insert image',
-        library: {
-          // uncomment the next line if you want to attach image to the current post
-          // uploadedTo : wp.media.view.settings.post.id, 
-          type: 'image'
-        },
+        // library: {
+        //   // uncomment the next line if you want to attach image to the current post
+        //   // uploadedTo : wp.media.view.settings.post.id, 
+        //   type: 'image'
+        // },
         button: {
           text: 'Use this image' // button label text
         },
-        multiple: true // for multiple image selection set to true
-      }).on('select', function () { // it also has "open" and "close" events 
-        var attachment = custom_uploader.state().get('selection').first().toJSON();
-        $(button).removeClass('button').html('<img class="true_pre_image" src="' + attachment.url + '" style="max-width:95%;display:block;" />').next().val(attachment.id).next().show();
+        multiple: true, // for multiple image selection set to true
+      })
+      
+      
+      custom_uploader.on('select', function () { // it also has "open" and "close" events 
+        var selection = custom_uploader.state().get('selection');
+        var map = selection.map( function( attachment ) {
+          attachment = attachment.toJSON();
+
+          // $("button").after("<img src=" +attachment.url+">");
+          $(button).removeClass('button').html('<img class="true_pre_image" src="' + attachment.url + '" style="max-width:95%;display:block;" />').next().val(attachment.id).next().show(); 
+          return attachment;
+        });
+        console.log(map);
+
+        /* var attachment = custom_uploader.state().get('selection').toJSON();
+        console.log(attachment);
+        $(button).removeClass('button').html('<img class="true_pre_image" src="' + attachment.url + '" style="max-width:95%;display:block;" />').next().val(attachment.id).next().show(); */
         /* if you sen multiple to true, here is some code for getting the image IDs */
-        var attachments = frame.state().get('selection'),
+        /* var attachments = frame.state().get('selection'),
           attachment_ids = new Array(),
           i = 0;
         attachments.each(function (attachment) {
           attachment_ids[i] = attachment['id'];
           console.log(attachment);
-          i++;
-        });
+          i++; 
+        });*/
 
-      })
-      .open();
+      });
+      custom_uploader.open();
   });
 
   /*
