@@ -32,7 +32,7 @@ function dom_care_func($atts, $content = null){
   </select>
   <button class="add-cart">Add To Cart</button>
   <?php
-  
+ wp_reset_postdata(); 
   $r = ob_get_clean();
   return $r;
 }

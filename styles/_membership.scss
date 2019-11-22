@@ -40,7 +40,7 @@
     list-style: none;
     padding: 0;
 
-    .nav-item {
+    li {
       margin: 2% 0;
       @include button(#15296B, #15296B);
 
@@ -254,5 +254,30 @@
 
   .select2-search__field {
     border: none;
+  }
+}
+
+.product-remove-checkout {
+
+  a {
+    display: block;
+    text-align: right;
+  }
+}
+
+
+.members-access-error {
+  background-color: rgba(237, 237, 237, .5);
+
+  &>p:first-of-type {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: red;
+  }
+
+  .woocommerce {
+    .user-login {
+      background: none;
+    }
   }
 }

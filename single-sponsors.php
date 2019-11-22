@@ -5,14 +5,15 @@
     'post_per_page' => -1,
     'order' => 'ASC'
   ));
+
 ?>
 
 <section class="single-page">
 
-<div class="container-fluid">
+<div class="container">
   <div class="row justify-content-between">
     <div class="col-lg-3">
-      <section class="sponsor-menu">
+      <section class="menu-single">
         <ul>
           <?php if ($sponsors->have_posts()) {
             while ($sponsors->have_posts()) {
@@ -27,8 +28,15 @@
     <div class="col-lg-7">
       <section class="sponsor-content">
         <div class="inner-wrapper">
-          <div class="title-wrapper">
-            <h2><?php echo get_the_title() ?></h2>
+          <?php
+            if (has_excerpt()) { ?>
+              <div class="title-wrapper">
+                <h2><?php echo get_the_excerpt() ?></h2>
+              </div>
+          <?php }
+          ?>
+          <div class="image-wrapper">
+            <img src="<?php echo get_the_post_thumbnail_url($post, 'large') ?>" alt="<?php echo get_the_title() ?>">
           </div>
           <div class="content-wrapper">
             <?php echo wpautop($post->post_content); ?>

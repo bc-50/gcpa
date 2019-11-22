@@ -105,7 +105,14 @@ header nav.navbar {
           left: -50%;
           border-radius: initial;
           padding: 25px 25px;
-          min-height: 30px; }
+          min-height: 30px;
+          pointer-events: none; }
+          header nav.navbar .navbar-nav .main-nav-container .main-nav li.menu-item > .dropdown-menu:hover .dropdown-menu {
+            opacity: 1;
+            z-index: 2;
+            pointer-events: all; }
+          header nav.navbar .navbar-nav .main-nav-container .main-nav li.menu-item > .dropdown-menu .dropdown-menu {
+            flex-direction: column; }
           header nav.navbar .navbar-nav .main-nav-container .main-nav li.menu-item > .dropdown-menu li.active a {
             color: #15296B; }
           header nav.navbar .navbar-nav .main-nav-container .main-nav li.menu-item > .dropdown-menu::before {
@@ -123,7 +130,8 @@ header nav.navbar {
             color: #15296B; }
         header nav.navbar .navbar-nav .main-nav-container .main-nav li.menu-item:hover > .dropdown-menu {
           opacity: 1;
-          z-index: 2; }
+          z-index: 2;
+          pointer-events: all; }
   @media (max-width: 1199px) {
     header nav.navbar {
       font-size: 0.8em; } }
@@ -603,13 +611,13 @@ footer {
   .woocommerce-MyAccount-navigation ul {
     list-style: none;
     padding: 0; }
-    .woocommerce-MyAccount-navigation ul .nav-item {
+    .woocommerce-MyAccount-navigation ul li {
       margin: 2% 0;
       display: flex;
       justify-content: center; }
-      .woocommerce-MyAccount-navigation ul .nav-item a,
-      .woocommerce-MyAccount-navigation ul .nav-item div,
-      .woocommerce-MyAccount-navigation ul .nav-item button {
+      .woocommerce-MyAccount-navigation ul li a,
+      .woocommerce-MyAccount-navigation ul li div,
+      .woocommerce-MyAccount-navigation ul li button {
         color: #15296B;
         border: 2px solid #15296B;
         text-transform: uppercase;
@@ -618,21 +626,21 @@ footer {
         transition: all 0.4s ease-in-out;
         text-align: center;
         background: none; }
-        .woocommerce-MyAccount-navigation ul .nav-item a:hover,
-        .woocommerce-MyAccount-navigation ul .nav-item div:hover,
-        .woocommerce-MyAccount-navigation ul .nav-item button:hover {
+        .woocommerce-MyAccount-navigation ul li a:hover,
+        .woocommerce-MyAccount-navigation ul li div:hover,
+        .woocommerce-MyAccount-navigation ul li button:hover {
           background-color: #15296B;
           color: #fff;
           text-decoration: none; }
-      .woocommerce-MyAccount-navigation ul .nav-item:first-of-type {
+      .woocommerce-MyAccount-navigation ul li:first-of-type {
         margin-top: 0; }
-      .woocommerce-MyAccount-navigation ul .nav-item a {
+      .woocommerce-MyAccount-navigation ul li a {
         width: 100%;
         text-align: left;
         padding: 4.5%;
         border-width: 1px;
         font-size: 1.25em; }
-      .woocommerce-MyAccount-navigation ul .nav-item.is-active a {
+      .woocommerce-MyAccount-navigation ul li.is-active a {
         color: #ffffff;
         background-color: #15296B; }
 
@@ -759,6 +767,19 @@ footer {
   .select2-search--dropdown .select2-search__field {
     border: none; }
 
+.product-remove-checkout a {
+  display: block;
+  text-align: right; }
+
+.members-access-error {
+  background-color: rgba(237, 237, 237, 0.5); }
+  .members-access-error > p:first-of-type {
+    font-weight: bold;
+    font-size: 1.3em;
+    color: red; }
+  .members-access-error .woocommerce .user-login {
+    background: none; }
+
 .gallery-head {
   background-size: cover;
   background-position: center center; }
@@ -868,7 +889,7 @@ footer {
 .normal-text .title-wrapper {
   margin: 0 0 2.8%; }
   .normal-text .title-wrapper h2 {
-    color: #15296B;
+    color: #15296b;
     font-weight: 700;
     font-size: 1.25em;
     margin: 0; }
@@ -884,8 +905,8 @@ footer {
   .normal-text .norm-button-wrapper a,
   .normal-text .norm-button-wrapper div,
   .normal-text .norm-button-wrapper button {
-    color: #15296B;
-    border: 2px solid #15296B;
+    color: #15296b;
+    border: 2px solid #15296b;
     text-transform: uppercase;
     font-weight: 500;
     padding: 10px 30px;
@@ -895,7 +916,7 @@ footer {
     .normal-text .norm-button-wrapper a:hover,
     .normal-text .norm-button-wrapper div:hover,
     .normal-text .norm-button-wrapper button:hover {
-      background-color: #15296B;
+      background-color: #15296b;
       color: #fff;
       text-decoration: none; }
 
@@ -960,7 +981,7 @@ footer {
     width: 100%;
     min-height: 553px; }
     .light-box .light-angled h3 {
-      color: #86C846;
+      color: #86c846;
       font-weight: 700;
       text-transform: uppercase;
       text-align: center; }
@@ -972,7 +993,7 @@ footer {
   display: flex; }
 
 .main-goals .main-goals-wrapper {
-  background-color: #15296B;
+  background-color: #15296b;
   color: #fff;
   /* width: 85%; */
   padding: 7% 0; }
@@ -997,7 +1018,7 @@ footer {
       list-style: none; }
       .main-goals .main-goals-wrapper .goals ul li {
         font-weight: 500;
-        font-size: .75em;
+        font-size: 0.75em;
         margin: 7.5% 0; }
 
 .aims .wpb_wrapper {
@@ -1008,7 +1029,7 @@ footer {
   display: flex;
   flex-direction: column; }
   .aims .normal-text .content-wrapper p {
-    font-size: .75em;
+    font-size: 0.75em;
     margin-bottom: 2.25em; }
   .aims .normal-text .norm-button-wrapper {
     margin-top: auto; }
@@ -1029,7 +1050,7 @@ footer {
       .green-content .inner-wrapper .title-wrapper h2 {
         font-size: 1.5em;
         font-weight: 700;
-        color: #15296B;
+        color: #15296b;
         text-transform: uppercase;
         /* width: 26.8%; */
         min-width: 255px; }
@@ -1047,8 +1068,8 @@ footer {
       .green-content .inner-wrapper .button-wrapper a,
       .green-content .inner-wrapper .button-wrapper div,
       .green-content .inner-wrapper .button-wrapper button {
-        color: #86C846;
-        border: 2px solid #86C846;
+        color: #86c846;
+        border: 2px solid #86c846;
         text-transform: uppercase;
         font-weight: 500;
         padding: 10px 30px;
@@ -1058,7 +1079,7 @@ footer {
         .green-content .inner-wrapper .button-wrapper a:hover,
         .green-content .inner-wrapper .button-wrapper div:hover,
         .green-content .inner-wrapper .button-wrapper button:hover {
-          background-color: #86C846;
+          background-color: #86c846;
           color: #fff;
           text-decoration: none; }
 
@@ -1084,7 +1105,7 @@ footer {
       min-height: 456px; }
 
 .staff-box {
-  background: linear-gradient(175deg, #86c846 55px, #15296B 30.7%);
+  background: linear-gradient(175deg, #86c846 55px, #15296b 30.7%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1102,7 +1123,7 @@ footer {
   background: linear-gradient(175deg, rgba(134, 200, 70, 0.3) 55px, transparent 30.7%); }
   .staff-reveal.non-mem {
     background: none;
-    border: 1px solid #86C846; }
+    border: 1px solid #86c846; }
     .staff-reveal.non-mem .grey-space {
       display: none; }
     .staff-reveal.non-mem .inner-wrapper {
@@ -1110,7 +1131,7 @@ footer {
       .staff-reveal.non-mem .inner-wrapper .content-wrapper h2 {
         display: none; }
   .staff-reveal .grey-space {
-    background-color: #C4C4C4;
+    background-color: #c4c4c4;
     width: 32.65%;
     height: 100%;
     max-width: 111px; }
@@ -1150,14 +1171,14 @@ footer {
   .staff-group .nth-15 {
     margin: 0 15px;
     max-width: 345px; }
-    .staff-group .nth-15:nth-of-type(n+4) {
+    .staff-group .nth-15:nth-of-type(n + 4) {
       margin: 3.8% 15px; }
     .staff-group .nth-15:nth-of-type(3n) {
       margin-right: 0; }
   .staff-group .role-wrapper h2 {
     text-align: center;
     position: relative;
-    color: #15296B;
+    color: #15296b;
     font-size: 1.5em;
     margin: 22px 0;
     font-weight: 700; }
@@ -1191,7 +1212,7 @@ footer {
   .simple-title h5,
   .simple-title h6 {
     display: inline-block;
-    color: #15296B;
+    color: #15296b;
     font-size: 1.5em;
     font-weight: 700;
     text-transform: uppercase; }
@@ -1217,13 +1238,13 @@ form {
     form .woocommerce-additional-fields h3 {
       text-transform: uppercase;
       font-weight: 700;
-      color: #15296B;
+      color: #15296b;
       font-size: 1.5em;
       margin-bottom: 2%; }
   form h3 {
     text-transform: uppercase;
     font-weight: 700;
-    color: #15296B;
+    color: #15296b;
     font-size: 1.5em;
     margin-bottom: 5%; }
   form .form-row {
@@ -1231,11 +1252,11 @@ form {
     flex-direction: column; }
     form .form-row .selection .select2-selection--single {
       background: none;
-      border: 2px solid #15296B; }
+      border: 2px solid #15296b; }
     form .form-row input.input-text {
       background: none;
-      border: 2px solid #15296B;
-      color: #15296B;
+      border: 2px solid #15296b;
+      color: #15296b;
       padding: 1%;
       max-height: 41px;
       margin-bottom: 7%;
@@ -1252,13 +1273,13 @@ form {
     background-color: rgba(99, 99, 99, 0.1);
     padding: 8% 9.2%; }
     .user-login #customer_login .form-wrapper h2 {
-      color: #15296B;
+      color: #15296b;
       font-weight: 700;
       text-transform: uppercase;
       font-size: 1.5em;
       margin-bottom: 16px; }
       .user-login #customer_login .form-wrapper h2:last-of-type {
-        color: #86C846; }
+        color: #86c846; }
     .user-login #customer_login .form-wrapper form {
       margin: 0; }
       .user-login #customer_login .form-wrapper form .button-wrapper {
@@ -1269,8 +1290,8 @@ form {
         .user-login #customer_login .form-wrapper form .button-wrapper a,
         .user-login #customer_login .form-wrapper form .button-wrapper div,
         .user-login #customer_login .form-wrapper form .button-wrapper button {
-          color: #86C846;
-          border: 2px solid #86C846;
+          color: #86c846;
+          border: 2px solid #86c846;
           text-transform: uppercase;
           font-weight: 500;
           padding: 10px 30px;
@@ -1280,7 +1301,7 @@ form {
           .user-login #customer_login .form-wrapper form .button-wrapper a:hover,
           .user-login #customer_login .form-wrapper form .button-wrapper div:hover,
           .user-login #customer_login .form-wrapper form .button-wrapper button:hover {
-            background-color: #86C846;
+            background-color: #86c846;
             color: #fff;
             text-decoration: none; }
         .user-login #customer_login .form-wrapper form .button-wrapper button {
@@ -1293,3 +1314,83 @@ form {
   .user-login #customer_login form.login, .user-login #customer_login form.register {
     border: none;
     padding: 0; }
+
+.choose-memebership .green-content.reveal-box {
+  background-color: rgba(237, 237, 237, 0.5); }
+  .choose-memebership .green-content.reveal-box .inner-wrapper {
+    height: 80%; }
+    .choose-memebership .green-content.reveal-box .inner-wrapper .title-wrapper {
+      margin-bottom: auto; }
+  .choose-memebership .green-content.reveal-box #membeship-choice-dom,
+  .choose-memebership .green-content.reveal-box #membeship-choice-care {
+    background: none;
+    padding: 1.2%;
+    border: 2px solid #15296b;
+    margin: 0% 0 27%; }
+  .choose-memebership .green-content.reveal-box .proceed-wrapper {
+    display: flex;
+    justify-content: center;
+    /* margin: 7% 0; */ }
+    .choose-memebership .green-content.reveal-box .proceed-wrapper a,
+    .choose-memebership .green-content.reveal-box .proceed-wrapper div,
+    .choose-memebership .green-content.reveal-box .proceed-wrapper button {
+      color: #86c846;
+      border: 2px solid #86c846;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 10px 30px;
+      transition: all 0.4s ease-in-out;
+      text-align: center;
+      background: none; }
+      .choose-memebership .green-content.reveal-box .proceed-wrapper a:hover,
+      .choose-memebership .green-content.reveal-box .proceed-wrapper div:hover,
+      .choose-memebership .green-content.reveal-box .proceed-wrapper button:hover {
+        background-color: #86c846;
+        color: #fff;
+        text-decoration: none; }
+
+.woocommerce-form-login-toggle,
+.woocommerce-form-coupon-toggle {
+  display: none; }
+
+.checkout-page {
+  background-color: rgba(237, 237, 237, 0.5);
+  padding: 3% 0; }
+
+.single-page {
+  padding: 3.8% 0; }
+  .single-page .menu-single ul {
+    list-style: none;
+    padding: 0; }
+    .single-page .menu-single ul li {
+      margin: 2% 0;
+      display: flex;
+      justify-content: center; }
+      .single-page .menu-single ul li a,
+      .single-page .menu-single ul li div,
+      .single-page .menu-single ul li button {
+        color: #15296B;
+        border: 2px solid #15296B;
+        text-transform: uppercase;
+        font-weight: 500;
+        padding: 10px 30px;
+        transition: all 0.4s ease-in-out;
+        text-align: center;
+        background: none; }
+        .single-page .menu-single ul li a:hover,
+        .single-page .menu-single ul li div:hover,
+        .single-page .menu-single ul li button:hover {
+          background-color: #15296B;
+          color: #fff;
+          text-decoration: none; }
+      .single-page .menu-single ul li:first-of-type {
+        margin-top: 0; }
+      .single-page .menu-single ul li a {
+        width: 100%;
+        text-align: left;
+        padding: 4.5%;
+        border-width: 1px;
+        font-size: 1.25em; }
+      .single-page .menu-single ul li.is-active a {
+        color: #ffffff;
+        background-color: #15296B; }

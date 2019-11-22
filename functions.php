@@ -21,6 +21,7 @@ function theme_files()
   wp_localize_script( 'Main-Scripts', 'ajax_posts', array(
     'ajaxurl' => admin_url( 'admin-ajax.php' ),
     'noposts' => __('No older posts found', 'event'),
+    'siteurl' => site_url(),
   ));
   wp_enqueue_script('lazy', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
   wp_enqueue_script('lazyplug', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
@@ -189,22 +190,31 @@ function wooc_extra_register_fields() {?>
   </p>
  <!--  <p class="form-row form-row-wide">
   <label for="reg_mang"><?php  _e( 'Registered Manager', 'woocommerce' ); ?><span class="required">*</span></label>
-  <input type="text" class="input-text" name="registered_manager" id="reg_mang" value="<?php if ( ! empty( $_POST['registered_manager'] ) ) esc_attr_e( $_POST['registered_manager'] ); ?>" />
+  <input type="text" class="input-text" name="registered_manager" id="reg_mang" value="<?php if ( ! empty( $_POST['registered_'] ) ) esc_attr_e( $_POST['registered_manager'] ); ?>" />
   </p> -->
   
   <div class="clear"></div>
   <?php
+
+
 }
 add_action( 'woocommerce_register_form_start', 'wooc_extra_register_fields' );
 
 function woocommerce_edit_my_account_page() {
   return apply_filters( 'woocommerce_forms_field', array(
-      'kc_custom_change' => array(
+      'kc_register_manager' => array(
           'type'        => 'text',
           'label'       => __( 'Registered Manager', ' cloudways' ),
           'placeholder' => __( 'Manager', 'cloudways' ),
           'required'    => true,
       ),
+
+      'kc_position' => array(
+        'type'        => 'text',
+        'label'       => __( 'Position within organisation', ' cloudways' ),
+        'placeholder' => __( 'Position', 'cloudways' ),
+        'required'    => true,
+    ),
   ) );
 }
 function edit_my_account_page_woocommerce() {
@@ -232,18 +242,26 @@ function wooc_save_extra_register_fields( $customer_id, $new_customer_data ) {
            // Last name field which is used in WooCommerce
            update_user_meta( $customer_id, 'billing_last_name', sanitize_text_field( $_POST['billing_last_name'] ) );
     }
-    if ( isset( $_POST['kc_custom_change'] ) ) {
+    add_user_meta( $customer_id, 'kc_register_manager', sanitize_text_field( $_POST['kc_register_manager'] ) );
+
+    if ( isset( $_POST['kc_register_manager'] ) ) {
+
       // Last name field which is by default
-      add_user_meta( $customer_id, 'kc_custom_change', sanitize_text_field( $_POST['kc_custom_change'] ) );
+      update_user_meta( $customer_id, 'kc_register_manager', sanitize_text_field( $_POST['kc_register_manager'] ) );
       // Last name field which is used in WooCommerce
-      echo print_r($new_customer_data);
-}
+    }
+    add_user_meta( $customer_id, 'kc_position', sanitize_text_field( $_POST['kc_position'] ) );
+
+    if ( isset( $_POST['kc_position'] ) ) {
+      // Last name field which is by default
+      update_user_meta( $customer_id, 'kc_position', sanitize_text_field( $_POST['kc_position'] ) );
+      // Last name field which is used in WooCommerce
+    }
 }
 add_action( 'woocommerce_created_customer', 'wooc_save_extra_register_fields', 15, 2 );
 
 function wc_new_order_column( $columns ) {
-  $columns['my_column'] = 'My column';
-  $columns['my_column2'] = 'My column2';
+
   $column['order-number'] = 'Order Number';
   return $columns;
 }
@@ -254,7 +272,7 @@ function sv_wc_cogs_add_order_profit_column_content( $column ) {
   global $post;
 
   if ('my_column' === $column) {
-      echo "hey";
+      echo get_user_meta(19,'kc_register_manager', true);
   }
     
 }
@@ -306,3 +324,6 @@ function misha_image_uploader_field( $name, $value = '') {
 		<a href="#" class="misha_remove_image_button" style="display:inline-block;display:' . $display . '">Remove image</a>
 	</div>';
 }
+
+
+

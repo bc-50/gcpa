@@ -22,7 +22,7 @@ function sponsor_post_type_func() {
   add_action( 'init', 'sponsor_post_type_func' );
 
 
-  define('MY_POST_TYPE', 'my');
+ /*  define('MY_POST_TYPE', 'my');
 define('MY_POST_SLUG', 'gallery');
  
 function my_register_post_type () {
@@ -67,4 +67,4 @@ function myplugin_save_postdata( $id ) {
 return $id;
 }
 
-add_action('save_post', 'myplugin_save_postdata');
+add_action('save_post', 'myplugin_save_postdata'); */
