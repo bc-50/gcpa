@@ -10,7 +10,18 @@
 
 <body>
 
-<header class="main" style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo tribe_is_event_query() ? get_theme_file_uri('imgs/events.jpg') : get_field('header_image') ?>)">
+<?php
+
+if (tribe_is_event_query()) { 
+  $src = get_theme_file_uri('imgs/events.jpg');
+} elseif (get_field('header_image')) { 
+  $src = get_field('header_image');
+} else {
+  $src = get_theme_file_uri('imgs/bw.jpg');
+} ?>
+
+<header class="main" style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo $src  ?>)">
+
   <div class="container">
     <div class="row menu">
       <div class="col">

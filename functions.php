@@ -25,6 +25,7 @@ function theme_files()
   ));
   wp_enqueue_script('lazy', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
   wp_enqueue_script('lazyplug', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
+  wp_enqueue_style('MyStyles', get_stylesheet_uri());
 
 
   /* fonts */
@@ -34,7 +35,7 @@ function theme_files()
 
 add_action('wp_enqueue_scripts', 'theme_files');
 
-function misha_include_myuploadscript() {
+function include_myuploadscript() {
 	/*
 	 * I recommend to add additional conditions just to not to load the scipts on each page
 	 * like:
@@ -43,13 +44,14 @@ function misha_include_myuploadscript() {
 	if ( ! did_action( 'wp_enqueue_media' ) ) {
 		wp_enqueue_media();
 	}
+  wp_enqueue_style('MyStyles', get_stylesheet_directory_uri() . '/backend-styles/admin-main.min.css');
  
    wp_enqueue_script( 'myuploadscript', get_stylesheet_directory_uri() . '/js/scripts.min.js', array('jquery'), null, false );
    wp_enqueue_script('lazy', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
    wp_enqueue_script('lazyplug', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.10/jquery.lazy.min.js');
-}
+  }
  
-add_action( 'admin_enqueue_scripts', 'misha_include_myuploadscript' );
+add_action( 'admin_enqueue_scripts', 'include_myuploadscript' );
 
 
 /* Extra theme support */
@@ -103,32 +105,32 @@ function brace_autoload_shortcodes(){
           array_push($the_date, date_format($date,"M"), date_format($date,"d"));
         } 
         $out .= '
-        <div class="col-lg-4">
-											<div class="event-wrapper">
-												<div class="image-wrapper" style="background-image: linear-gradient(13deg,rgba(21,41,107,.5) 49%,transparent 49.33%), url('. get_the_post_thumbnail_url($loop, 'full') .')"></div>
-												<div class="event-info">
-													<div class="date">
-														<div class="date-wrapper">';
-															 if (!empty($the_date)) { 
-																$out .= '<p>'.  $the_date[0] .'</p>
-																<p>'.  $the_date[1] .'</p>'; 
-                                $the_date = null; };
-                          $out .=	'</div>
-													</div>
-													<div class="text-content">
-														<div class="title-wrapper">
-															<h3>'. $loop->post_title .'</h3>
-														</div>
-														<div class="content-wrapper">
-															'.  $loop->post_content .'
-														</div>
-														<div class="button-wrapper">
-															<a href="'. esc_url(get_the_permalink($loop)) .'">Book Now</a>
-														</div>
-													</div>
-												</div>
+              <div class="col-lg-4">
+								<div class="event-wrapper">
+									<div class="image-wrapper" style="background-image: linear-gradient(13deg,rgba(21,41,107,.5) 49%,transparent 49.33%), url('. get_the_post_thumbnail_url($loop, 'full') .')"></div>
+									<div class="event-info">
+										<div class="date">
+											<div class="date-wrapper">';
+												 if (!empty($the_date)) { 
+													$out .= '<p>'.  $the_date[0] .'</p>
+													<p>'.  $the_date[1] .'</p>'; 
+                          $the_date = null; };
+                    $out .=	'</div>
+										</div>
+										<div class="text-content">
+											<div class="title-wrapper">
+												<h3>'. $loop->post_title .'</h3>
+											</div>
+											<div class="content-wrapper">
+												'.  $loop->post_content .'
+											</div>
+											<div class="button-wrapper">
+												<a href="'. esc_url(get_the_permalink($loop)) .'">Book Now</a>
 											</div>
 										</div>
+									</div>
+								</div>
+							</div>
          ';
 
     endforeach;
@@ -301,29 +303,53 @@ function new_orders_columns( $columns = array() ) {
 }
 add_filter( 'woocommerce_account_orders_columns', 'new_orders_columns' );
 
-function misha_image_uploader_field( $name, $value = '') {
+function image_uploader_field( $name, $values = array()) {
 	$image = ' button">Upload image';
 	$image_size = 'full'; // it would be better to use thumbnail size here (150x150 or so)
-	$display = 'none'; // display state ot the "Remove image" button
- 
-	if( $image_attributes = wp_get_attachment_image_src( $value, $image_size ) ) {
- 
-		// $image_attributes[0] - image URL
-		// $image_attributes[1] - image width
-		// $image_attributes[2] - image height
- 
-		$image = '"><img src="' . $image_attributes[0] . '" style="max-width:95%;display:block;" />';
-		$display = 'inline-block';
- 
-	} 
- 
-	return '
-	<div>
-		<a href="#" class="misha_upload_image_button' . $image . '</a>
-		<input type="hidden" name="' . $name . '" id="' . $name . '" value="' . esc_attr( $value ) . '" />
-		<a href="#" class="misha_remove_image_button" style="display:inline-block;display:' . $display . '">Remove image</a>
-	</div>';
+  $display = 'none'; // display state ot the "Remove image" button
+  $r = '<div class="gallery-wrapper">';
+  if (!empty($values)) {
+    foreach ($values[0] as $value) {
+      if( $image_attributes = wp_get_attachment_image_src( $value, $image_size ) ) {
+   
+        // $image_attributes[0] - image URL
+        // $image_attributes[1] - image width
+        // $image_attributes[2] - image height
+     
+        $image = '<img src="' . $image_attributes[0] . '" style="max-width:95%;display:block;" />';
+        $display = 'inline-block';
+     
+        $r .='
+        <div class="admin-image-wrapper">
+          '. $image .'
+        </div>';
+      } 
+    }
+  }
+  $r .= '</div>
+        <a href="#" display="none" class="remove_image_button">Remove All</a>';
+	return $r;
 }
 
 
+add_action( 'init', 'create_type_taxonomy');
 
+function create_type_taxonomy (){
+  register_taxonomy('pagetype','page',array(
+    'hierarchical' => true,
+    'exclude_from_search' => false,
+    'labels' => array(
+      'name' => _x( 'Page Type', 'taxonomy general name' ),
+      'singular_name' => _x( 'Page', 'taxonomy singular name' ),
+      'search_items' =>  __( 'Search Pages' ),
+      'all_items' => __( 'All Pages' ),
+      'parent_item' => __( 'Parent Page' ),
+      'parent_item_colon' => __( 'Parent Page:' ),
+      'edit_item' => __( 'Edit Page' ),
+      'update_item' => __( 'Update Page' ),
+      'add_new_item' => __( 'Add New Page' ),
+      'new_item_name' => __( 'New Page Name' ),
+      'menu_name' => __( 'Pages' ),
+    ),
+  ));
+}

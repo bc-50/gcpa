@@ -28,7 +28,7 @@
    function main_goal_map()
    {
      vc_map(array(
-       'name' => __('Main Goals', 'my-text-domain'),
+       'name' => __('GCPA List', 'my-text-domain'),
        'base' => 'main_goal',
        'category' => __( 'Brace Elements', 'my-text-domain'),
        'icon' => get_template_directory_uri().'/shortcodes/visual-composer/vc-brace-icon.png',

@@ -5,6 +5,7 @@
 @import "events";
 @import "membership";
 @import "gallery";
+@import "sponsor";
 
 .container-wrapper {
   display: flex;
@@ -181,6 +182,13 @@
           font-weight: 500;
           font-size: 0.75em;
           margin: 7.5% 0;
+
+          a {
+            color: #86c846;
+            transition: all .3s ease;
+
+            &:hover {}
+          }
         }
       }
     }
