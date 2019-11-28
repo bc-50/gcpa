@@ -964,12 +964,9 @@ footer {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     position: relative; }
-    .gallery-archive .single-gal-wrapper .image-wrapper a {
-      width: 100%;
+    .gallery-archive .single-gal-wrapper .image-wrapper img {
+      max-width: 100%;
       position: absolute; }
-      .gallery-archive .single-gal-wrapper .image-wrapper a img {
-        max-width: 100%;
-        position: absolute; }
   .gallery-archive .single-gal-wrapper .content-wrapper {
     text-align: center; }
 
@@ -1031,16 +1028,10 @@ footer {
       .single-page .logo-row .logo-wrapper a img {
         max-width: 100%; }
 
-.woocommerce-cart-form__cart-item {
-  display: flex;
-  border: 1px solid #000;
-  border-bottom: none; }
-  .woocommerce-cart-form__cart-item:last-of-type {
-    border-bottom: 1px solid #000; }
-  .woocommerce-cart-form__cart-item + .woocommerce-cart-form__cart-item {
-    border-top: none; }
-  .woocommerce-cart-form__cart-item .sub-titles {
-    display: inline; }
+.product-tables table {
+  border-collapse: separate;
+  border-spacing: 70px;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
 
 .container-wrapper {
   display: flex;

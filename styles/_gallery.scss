@@ -158,15 +158,15 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       position: relative;
 
-      a {
-        width: 100%;
-        position: absolute;
+      // a {
+      //   width: 100%;
+      //   position: absolute;
 
         img {
           max-width: 100%;
           position: absolute;
         }
-      }
+      // }
     }
 
     .content-wrapper {

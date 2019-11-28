@@ -1,19 +1,7 @@
-.woocommerce-cart-form__cart-item {
-  display: flex;
-  border: 1px solid #000;
-  border-bottom: none;
-
-  &:last-of-type {
-    border-bottom: 1px solid #000;
-  }
-
-  + {
-    .woocommerce-cart-form__cart-item {
-      border-top: none;
-    }
-  }
-
-  .sub-titles {
-    display: inline;
+.product-tables{
+  table{
+    border-collapse: separate;
+  border-spacing: 70px;
+  border: 1px solid rgba(0,0,0,.1);
   }
 }

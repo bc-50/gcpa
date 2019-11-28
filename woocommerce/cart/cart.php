@@ -42,10 +42,10 @@ do_action( 'woocommerce_before_cart' ); ?>
           if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
             $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
             
-            $mem .= '<div class="woocommerce-cart-form__cart-item ' . esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) . '">
+            $mem .= '<tr class="woocommerce-cart-form__cart-item ' . esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) . '">
               
-              <div class="product-name" data-title="'. esc_attr( "Product", "woocommerce" ) .'">
-                <p class="sub-titles">Product:</p>
+              <td class="product-name" data-title="'. esc_attr( "Product", "woocommerce" ) .'">
+                
               ';
               if ( ! $product_permalink ) {
                 $mem .= wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
@@ -63,17 +63,17 @@ do_action( 'woocommerce_before_cart' ); ?>
               $mem .=  wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
               }
               $mem .= '
-              </div>
+              </td>
   
-              <div class="product-price" data-title="'.  esc_attr( "Price", "woocommerce" ) .'">
-                <p class="sub-titles">Product Price:</p>
+              <td class="product-price" data-title="'.  esc_attr( "Price", "woocommerce" ) .'">
+                
                 '.
                     apply_filters( "woocommerce_cart_item_price", WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ) // PHPCS: XSS ok.
                 .'
-              </div>
+              </td>
   
-              <div class="product-quantity" data-title="'. esc_attr( 'Quantity', 'woocommerce' ) .'">
-                <p class="sub-titles">Product Quantity:</p>
+              <td class="product-quantity" data-title="'. esc_attr( 'Quantity', 'woocommerce' ) .'">
+                
               ';
               if ( $_product->is_sold_individually() ) {
                 $mem .=  $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -93,15 +93,15 @@ do_action( 'woocommerce_before_cart' ); ?>
   
                 apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
               $mem .= '
-              </div>
+              </td>
   
-              <div class="product-subtotal" data-title="'. esc_attr( 'Subtotal', 'woocommerce' ) .'">
+              <td class="product-subtotal" data-title="'. esc_attr( 'Subtotal', 'woocommerce' ) .'">
                 <p class="sub-titles">Subtotal:</p>
                 '.
                   apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ) // PHPCS: XSS ok.
                 .'
-              </div>
-              <div class="product-remove">
+              </td>
+              <td class="product-remove">
                 '.
                     apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     'woocommerce_cart_item_remove_link',
@@ -115,18 +115,18 @@ do_action( 'woocommerce_before_cart' ); ?>
                     $cart_item_key
                   )
                 .'
-              </div>
-            </div>
+              </td>
+            </tr>
             ';
           }
         }else{
           if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
             $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
             
-            $tic .= '<div class="woocommerce-cart-form__cart-item ' . esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) . '">
+            $tic .= '<tr class="woocommerce-cart-form__cart-item ' . esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ) . '">
               
-              <div class="product-name" data-title="'. esc_attr( "Product", "woocommerce" ) .'">
-                <p class="sub-titles">Product:</p>
+              <td class="product-name" data-title="'. esc_attr( "Product", "woocommerce" ) .'">
+                
               ';
               if ( ! $product_permalink ) {
                 $tic .= wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) . '&nbsp;' );
@@ -144,17 +144,17 @@ do_action( 'woocommerce_before_cart' ); ?>
               $tic .=  wp_kses_post( apply_filters( 'woocommerce_cart_item_backorder_notification', '<p class="backorder_notification">' . esc_html__( 'Available on backorder', 'woocommerce' ) . '</p>', $product_id ) );
               }
               $tic .= '
-              </div>
+              </td>
   
-              <div class="product-price" data-title="'.  esc_attr( "Price", "woocommerce" ) .'">
-                <p class="sub-titles">Product Price:</p>
+              <td class="product-price" data-title="'.  esc_attr( "Price", "woocommerce" ) .'">
+                
                 '.
                     apply_filters( "woocommerce_cart_item_price", WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key ) // PHPCS: XSS ok.
                 .'
-              </div>
+              </td>
   
-              <div class="product-quantity" data-title="'. esc_attr( 'Quantity', 'woocommerce' ) .'">
-                <p class="sub-titles">Product Quantity:</p>
+              <td class="product-quantity" data-title="'. esc_attr( 'Quantity', 'woocommerce' ) .'">
+                
               ';
               if ( $_product->is_sold_individually() ) {
                 $tic .=  $product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -174,15 +174,14 @@ do_action( 'woocommerce_before_cart' ); ?>
   
                 apply_filters( 'woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item ); // PHPCS: XSS ok.
               $tic .= '
-              </div>
+              </td>
   
-              <div class="product-subtotal" data-title="'. esc_attr( 'Subtotal', 'woocommerce' ) .'">
-                <p class="sub-titles">Subtotal:</p>
+              <td class="product-subtotal" data-title="'. esc_attr( 'Subtotal', 'woocommerce' ) .'">
                 '.
                   apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ) // PHPCS: XSS ok.
                 .'
-              </div>
-              <div class="product-remove">
+              </td>
+              <td class="product-remove">
                 '.
                     apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                     'woocommerce_cart_item_remove_link',
@@ -196,8 +195,8 @@ do_action( 'woocommerce_before_cart' ); ?>
                     $cart_item_key
                   )
                 .'
-              </div>
-            </div>
+              </td>
+            </tr>
             ';
           }
         }
@@ -210,34 +209,50 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 
       <?php do_action( 'woocommerce_after_cart_contents' ); ?>
-      <section class="memberships">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="title-wrapper">
-                <h2>Membership</h2>
+
+        
+        <section class="product-tables">
+          <div class="container-fluid">
+            <div class="row memberships">
+              <div class="col-10">
+                <div class="title-wrapper">
+                  <h2>Membership</h2>
+                </div>
+                <table>
+                  <thead>
+                    <th>Product</th>
+                    <th>Product Price</th>
+                    <th>Product Quantity</th>
+                    <th>Subtotal</th>
+                    <th>&nbsp;</th>
+                  </thead>
+                  <tbody>
+                    <?php echo $mem ?>
+                  </tbody>
+                </table>
               </div>
-              <div class="products">
-                <?php echo $mem ?>
+            </div>
+            <div class="row tickets">
+              <div class="col-10">
+                <div class="title-wrapper">
+                  <h2>Tickets</h2>
+                </div>
+                <table>
+                  <thead>
+                    <th>Product</th>
+                    <th>Product Price</th>
+                    <th>Product Quantity</th>
+                    <th>Subtotal</th>
+                    <th>&nbsp;</th>
+                  </thead>
+                  <tbody>
+                    <?php echo $tic ?>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="tickets">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="title-wrapper">
-                <h2>Tickets</h2>
-              </div>
-              <div class="products">
-                <?php echo $tic ?>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
     </section>
 	<?php do_action( 'woocommerce_after_cart_table' ); ?>
 </form>
