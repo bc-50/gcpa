@@ -31,7 +31,7 @@ function memberships_func($atts, $content = null){
           <section class="light-box" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(//localhost:3000/gcpa/wp-content/uploads/2019/11/community.jpg)">
             <div class="light-angled">
               <div class="title">
-                <h3>Care Home</h3>
+                <h3>Bed Based Care</h3>
                 <div class="seperator-wrapper">
                   <div class="seperator"></div>
                 </div>
@@ -42,7 +42,7 @@ function memberships_func($atts, $content = null){
 						<div class="inner-wrapper">
 							<div class="title-wrapper">
 								<h2>
-									Care Home
+                  Bed Based Care
 									<div class="seperator-wrapper green">
 										<div class="seperator"></div>
 									</div>

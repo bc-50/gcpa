@@ -326,8 +326,10 @@ function image_uploader_field( $name, $values = array()) {
       } 
     }
   }
-  $r .= '</div>
-        <a href="#" display="none" class="remove_image_button">Remove All</a>';
+  $r .= '
+          <div class="upload">Upload Image</div>
+          </div>
+        <a href="#" style="display: none;" class="remove_image_button">Remove All</a>';
 	return $r;
 }
 

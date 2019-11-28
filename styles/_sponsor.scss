@@ -2,7 +2,15 @@
   background-color: rgba(237, 237, 237, .5);
 
   .menu-single {
+
     ul {
+      li {
+        a {
+          font-size: 1em !important;
+
+        }
+      }
+
       li:first-of-type {
         a {
           border: none;

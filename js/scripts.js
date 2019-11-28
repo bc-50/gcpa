@@ -1,6 +1,36 @@
+var imgs = [];
+
+var listElm = document.querySelector('#gallery-row');
+var loadMore = function () {
+  for (var i = 0; i < 20; i++) {
+    // if (imgs[i]) {
+    $(imgs[i]).show();
+    // }
+  }
+  for (var i = 0; i < 20; i++) {
+    // if (imgs) {
+    imgs.shift();
+    // }
+  }
+}
+window.addEventListener('scroll', function () {
+  if (imgs.length > 0) {
+
+    if ($(window).scrollTop() > listElm.scrollTop + listElm.clientHeight - 100) {
+      console.log(listElm.scrollHeight);
+      loadMore();
+    }
+  }
+
+});
+
 $(function () {
   $(".single-gallery-image").lazy();
-
+  if ($('.admin-image-wrapper > img').length) {
+    console.log($('.admin-image-wrapper > img'));
+    $('.remove_image_button').show();
+    $('.upload').hide();
+  }
   $(".single-gallery-image").click(function (e) {
     var target = $(e.target);
     var dataT = $(target).data("target");
@@ -13,7 +43,6 @@ $(function () {
       var target = $(e.target).parents(".gallery-pop-up");
     } else {
       var target = $(e.target);
-      console.log(target);
     }
     $(target).css("display", "none");
     $("body").css("overflow", "auto");
@@ -74,7 +103,6 @@ $(function () {
       dataType: "html",
       url: data,
       success: function (data) {
-        console.log("Added to cart");
         $(".add-cart").attr("disabled", false); // Disable the button, temp.
         window.location.href = ajax_posts.siteurl + "/checkout";
       },
@@ -147,7 +175,6 @@ $(function () {
         $('.remove_image_button').show();
         html += "<div class=\"admin-image-wrapper\"><img src=" + attachment.url + "></div>";
         vals += "," + attachment.id;
-        console.log(attachment);
 
       });
       vals = vals.slice(1);
@@ -161,14 +188,14 @@ $(function () {
    * Remove image event
    */
   $('body').on('click', '.remove_image_button', function () {
-    $('.gallery-wrapper').html('Upload Image');
+    $('.gallery-wrapper').html('<div class="upload">Upload Image</div>');
     $('.remove_image_button').hide();
 
     return false;
   });
 
-  /* $(".woocommerce-checkout").on("submit", function(e) {
-    e.preventDefault();
-    window.location.href = ajax_posts.siteurl + "/members-login";
-  }); */
+  $('.gallery-column').each(function (index, element) {
+    imgs.push($(this));
+  });
+  loadMore();
 });

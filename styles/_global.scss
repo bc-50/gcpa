@@ -97,3 +97,10 @@ body {
     }
   }
 }
+
+.vc_column-inner {
+  @media (max-width: 767px) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

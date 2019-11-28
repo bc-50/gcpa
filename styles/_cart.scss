@@ -1,0 +1,19 @@
+.woocommerce-cart-form__cart-item {
+  display: flex;
+  border: 1px solid #000;
+  border-bottom: none;
+
+  &:last-of-type {
+    border-bottom: 1px solid #000;
+  }
+
+  + {
+    .woocommerce-cart-form__cart-item {
+      border-top: none;
+    }
+  }
+
+  .sub-titles {
+    display: inline;
+  }
+}

@@ -1,4 +1,9 @@
 header {
+
+  @media (max-width: 500px) {
+    font-size: .8em;
+  }
+
   &.main {
     background-size: cover;
     background-position: center center;
@@ -52,7 +57,7 @@ header {
             a {
               color: #fff;
               text-transform: uppercase;
-              font-size: 1em;
+              font-size: .9em;
               font-weight: 700;
               transition: all 0.3s ease-out;
               padding: 0;
@@ -149,12 +154,22 @@ header {
         rgba(21, 41, 107, 0.75) 62%,
         transparent 62.45%);
 
+    @media (max-width: 767px) {
+      background: linear-gradient(180deg, rgba(21, 41, 107, .75) 54%, transparent 54.45%);
+    }
+
     .header-spacing {
       padding: 2.5% 0 3.42%;
     }
 
     .logo-row {
       justify-content: space-between;
+
+      .logo-wrapper {
+        svg {
+          width: 100%;
+        }
+      }
 
       .members-button {
         @include button(#fff, #86c846);
@@ -173,6 +188,18 @@ header {
             color: #86c846;
           }
         }
+
+        @media (max-width: 991px) {
+          padding: 5% 15px;
+        }
+
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 0.8em;
       }
     }
 
@@ -186,6 +213,10 @@ header {
           display: flex;
           justify-content: flex-end;
           margin: 0;
+
+          @media (max-width: 767px) {
+            justify-content: center;
+          }
 
           li {
             width: 28px;
@@ -235,6 +266,10 @@ header {
         font-weight: 700;
         font-size: 2.5em;
         display: inline-block;
+      }
+
+      @media (max-width: 400px) {
+        font-size: 0.7em;
       }
     }
   }

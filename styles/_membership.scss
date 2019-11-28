@@ -91,6 +91,8 @@
   &:not(.dashboard) {
     display: flex;
 
+
+
     .account-content {
       order: 2;
       width: 48.7%;
@@ -207,6 +209,18 @@
           line-height: 1.8;
           margin: 0;
         }
+      }
+    }
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+
+      .account-content {
+        width: 100%;
+      }
+
+      .woocommerce-MyAccount-navigation {
+        width: 100%;
       }
     }
   }

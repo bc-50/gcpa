@@ -22,26 +22,29 @@ if ( ! empty( $event_id ) && function_exists( 'tribe_is_recurring_event' ) ) {
 	$is_recurring = tribe_is_recurring_event( $event_id );
 }
 
-$start_date_full = tribe_get_start_date();
+	$start_date_full = tribe_get_start_date();
+	if (strpos($start_date_full,'@')) {
+		$at_position = strpos($start_date_full,'@');
 
-if (strpos($start_date_full,'@')) {
-	$at_position = strpos($start_date_full,'@');
+		$time = substr($start_date_full,$at_position+1);
 
-	$time = substr($start_date_full,$at_position+1);
+		$start_date = substr($start_date_full,0,$at_position);
 
-	$start_date = substr($start_date_full,0,$at_position);
+		$at_position = strpos($start_date,',');
 
-	$at_position = strpos($start_date,',');
+		$start_date = substr($start_date,0,$at_position);
+	}else{
+		$at_position = strpos($start_date_full,',');
+		$start_date = substr($start_date_full,0,$at_position);
 
-	$start_date = substr($start_date,0,$at_position);
-}else{
-	$start_date = $start_date_full;
+		$time = 'All Day';
+	}
+	$venue = tribe_get_venue_object();
+	$venue_name = tribe_get_venue();
+if (tribe_get_venue()) {
 
-	$time = 'All Day';
+	$full_veneue = $venue_name . ',' . $venue->address . ', ' . $venue->state_province . ' ' . $venue->zip;
 }
-$venue = tribe_get_venue_object();
-$venue_name = tribe_get_venue();
-$full_veneue = $venue_name . ',' . $venue->address . ', ' . $venue->state_province . ' ' . $venue->zip;
 
 ?>
 
@@ -60,7 +63,7 @@ $full_veneue = $venue_name . ',' . $venue->address . ', ' . $venue->state_provin
 								<h3>Details</h3>
 								<p>Date: <?php echo $start_date  ?></p>
 								<p>Time: <?php echo $time  ?></p>
-								<p>Venue: <?php echo $venue_name ?></p>
+								<p>Venue: <?php echo $venue_name != '' ? $venue_name : 'To Be Announced' ?></p>
 							</div>
 							<div class="image-wrapper">
 								<img src="<?php echo get_the_post_thumbnail_url(null, 'large') ?>" alt="">
@@ -71,8 +74,10 @@ $full_veneue = $venue_name . ',' . $venue->address . ', ' . $venue->state_provin
 						</div>
 					</div>
 					<div class="map-wrapper">
-						<p><?php echo $full_veneue?></p>
-						<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo tribe_get_map_link(); ?>&output=embed"></iframe>
+						<p><?php echo isset($full_veneue) ? $full_veneue : 'To Be Announced' ?></p>
+						<?php if (tribe_get_map_link()) { ?>
+							<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<?php echo tribe_get_map_link(); ?>&output=embed"></iframe>
+						<?php } ?>
 					</div>
 				</div>
 				<?php if (tribe_events_has_tickets()) { ?>

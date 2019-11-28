@@ -51,14 +51,14 @@ if (tribe_is_event_query()) {
     <div class="header-spacing">
       <div class="container">
         <div class="row logo-row">
-          <div class="col-lg-5">
+          <div class="col-md-5">
             <div class="gcpa-logo">
               <div class="logo-wrapper">
                 <a href="<?php echo esc_url(site_url()) ?>"><?php logo_svg('head') ?></a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="members-button">
             <a href="<?php echo esc_url(site_url('members-login')) ?>"><i class="fas fa-user"></i> Members Login</a>
             </div>
@@ -87,6 +87,8 @@ if (tribe_is_event_query()) {
               echo get_field('header_text');
             } elseif (tribe_is_event_query() && !get_field('header_text')) {
               echo 'Upcoming Events';
+            } elseif (is_archive() && !get_field('header_text')) {
+              echo str_replace('Archives:','',get_the_archive_title());
             } else { 
               echo get_the_title();
             } ?>

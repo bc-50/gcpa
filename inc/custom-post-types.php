@@ -15,7 +15,7 @@ function sponsor_post_type_func() {
       'public' => true,
       'menu_icon' => 'dashicons-admin-users',
       'has_archive' => false,
-      'map_meta_cap' => true        //wordpress applies role permission when needed
+    'map_meta_cap' => true        //wordpress applies role permission when needed
     ));
   }
   
@@ -42,17 +42,20 @@ function sponsor_post_type_func() {
     
     add_action( 'init', 'approved_post_type_func' );
 
-define('MY_POST_TYPE', 'my');
+define('MY_POST_TYPE', 'gallery');
 define('MY_POST_SLUG', 'gallery');
  
 function my_register_post_type () {
   $args = array (
       'label' => 'Gallery',
-      'supports' => array( 'title', 'excerpt','thumbnail' ),
+      'supports' => array( 'title','editor', 'excerpt','thumbnail' ),
       'register_meta_box_cb' => 'my_meta_box_cb',
+      'has_archive' => true,
       'show_ui' => true,
-      'query_var' => true
-  );
+      'public' => true,
+      'query_var' => true,
+      'show_in_rest' => true
+      );
   register_post_type( MY_POST_TYPE , $args );
 }
 add_action( 'init', 'my_register_post_type' );
@@ -76,7 +79,7 @@ function myplugin_save_postdata( $id ) {
  
   
   $count = 1;
- if (isset($post)) {
+ if (isset($post) && !empty($_POST['my_details'])) {
   if ('' !== get_post_meta($post->ID, $meta_key)) {
     
     $metas = explode(',',$_POST['my_details']);

@@ -28,7 +28,7 @@ function group_staff_func($atts, $content = null){
       </div>
       <div class="row m-0 justify-content-center">
         <?php for ($i=0; $i < count($boxes); $i++) { ?>
-            <div class="col-lg<?php echo $column ?> p-0 nth-15">
+            <div class="col-lg p-0 nth-15">
               <?php echo do_shortcode($boxes[$i]); ?>
             </div>
         <?php } ?>
