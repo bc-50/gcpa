@@ -40,8 +40,14 @@ footer {
     }
   }
 
+  .memeber-row {
+    position: relative;
+    z-index: 2;
+  }
+
   .wrapper {
     position: relative;
+    z-index: 1;
     margin: 45px 0;
     display: flex;
     flex-direction: column;

@@ -21,7 +21,7 @@ function sponsor_post_type_func() {
   
   add_action( 'init', 'sponsor_post_type_func' );
 
-  function approved_post_type_func() {
+ /*  function approved_post_type_func() {
     // Approved Supplier Post Type
     register_post_type('approved', array(
       //Most of the visual stuff in labels array
@@ -40,7 +40,7 @@ function sponsor_post_type_func() {
       ));
     }
     
-    add_action( 'init', 'approved_post_type_func' );
+    add_action( 'init', 'approved_post_type_func' ); */
 
 define('MY_POST_TYPE', 'gallery');
 define('MY_POST_SLUG', 'gallery');

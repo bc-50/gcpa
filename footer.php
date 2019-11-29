@@ -1,6 +1,6 @@
 <footer>
  <div class="container">
-   <div class="row justify-content-end">
+   <div class="row justify-content-end member-row">
      <div class="col-lg-5">
        <div class="member-wrapper">
          <h3><?php echo get_field('member_text') ?></h3>
@@ -14,7 +14,7 @@
      <div class="row logo-row">
       <div class="col-lg-3">
         <div class="footer-logo">
-        <a href="<?php echo esc_url(site_url()) ?>"><?php logo_svg('foot') ?></a>
+        <a href="<?php echo esc_url(site_url('membership')) ?>"><?php logo_svg('foot') ?></a>
         </div>
       </div>
      </div>
