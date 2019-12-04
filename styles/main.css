@@ -1522,56 +1522,6 @@ form {
       line-height: 1.8;
       margin: 0; }
 
-/* Login */
-.user-login {
-  background-color: rgba(237, 237, 237, 0.5);
-  padding: 3.7% 0 5.5%; }
-  .user-login #customer_login .form-wrapper {
-    background-color: rgba(99, 99, 99, 0.1);
-    padding: 8% 9.2%; }
-    .user-login #customer_login .form-wrapper h2 {
-      color: #15296b;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 1.5em;
-      margin-bottom: 16px; }
-      .user-login #customer_login .form-wrapper h2:last-of-type {
-        color: #86c846; }
-    .user-login #customer_login .form-wrapper form {
-      margin: 0; }
-      .user-login #customer_login .form-wrapper form .button-wrapper {
-        display: flex;
-        justify-content: center;
-        justify-content: flex-start;
-        margin-top: 0; }
-        .user-login #customer_login .form-wrapper form .button-wrapper a,
-        .user-login #customer_login .form-wrapper form .button-wrapper div,
-        .user-login #customer_login .form-wrapper form .button-wrapper button {
-          color: #86c846;
-          border: 2px solid #86c846;
-          text-transform: uppercase;
-          font-weight: 500;
-          padding: 10px 30px;
-          transition: all 0.4s ease-in-out;
-          text-align: center;
-          background: none; }
-          .user-login #customer_login .form-wrapper form .button-wrapper a:hover,
-          .user-login #customer_login .form-wrapper form .button-wrapper div:hover,
-          .user-login #customer_login .form-wrapper form .button-wrapper button:hover {
-            background-color: #86c846;
-            color: #fff;
-            text-decoration: none; }
-        .user-login #customer_login .form-wrapper form .button-wrapper button {
-          min-width: 160px;
-          padding: 2.5% 0; }
-      .user-login #customer_login .form-wrapper form .woocommerce-privacy-policy-text {
-        font-size: 10px;
-        color: #636363;
-        margin-top: 8%; }
-  .user-login #customer_login form.login, .user-login #customer_login form.register {
-    border: none;
-    padding: 0; }
-
 .choose-memebership .green-content.reveal-box {
   background-color: rgba(237, 237, 237, 0.5); }
   .choose-memebership .green-content.reveal-box .inner-wrapper {

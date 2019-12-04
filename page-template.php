@@ -116,4 +116,7 @@ Template Post Type: sponsors,page,approved
   </div>
 </section>
 
+
+
+
 <?php get_footer() ?>

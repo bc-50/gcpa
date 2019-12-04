@@ -616,60 +616,7 @@ form {
   /* } */
 }
 
-/* Login */
-.user-login {
-  background-color: rgba(237, 237, 237, 0.5);
-  padding: 3.7% 0 5.5%;
 
-  #customer_login {
-    .form-wrapper {
-      background-color: rgba(99, 99, 99, 0.1);
-      padding: 8% 9.2%;
-
-      h2 {
-        color: #15296b;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 1.5em;
-        margin-bottom: 16px;
-
-        &:last-of-type {
-          color: #86c846;
-        }
-      }
-
-      form {
-        margin: 0;
-
-        .button-wrapper {
-          @include button(#86c846, #86c846);
-          justify-content: flex-start;
-          margin-top: 0;
-
-          button {
-            min-width: 160px;
-            padding: 2.5% 0;
-          }
-        }
-
-        .woocommerce-privacy-policy-text {
-          font-size: 10px;
-          color: #636363;
-          margin-top: 8%;
-        }
-      }
-    }
-
-    form {
-
-      &.login,
-      &.register {
-        border: none;
-        padding: 0;
-      }
-    }
-  }
-}
 
 .choose-memebership {
   .green-content.reveal-box {
