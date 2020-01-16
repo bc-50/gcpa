@@ -8,7 +8,9 @@ function light_box_func($atts, $content = null){
     'check' => 'yes',
     'tcolor' => 'black',
     'ctitle' => 'yes',
-    'case' => 'sentence'
+    'case' => 'sentence',
+    'link_box' => 'no',
+    'link_bx' => null
   ), $atts ) );
 
   $image_src = wp_get_attachment_image_src($img, 'full');
@@ -17,8 +19,17 @@ function light_box_func($atts, $content = null){
   $a_link = $link['url'];
   $a_title = ($link['title'] == '') ? '' : 'title="'.$link['title'].'"';
   $a_target = ($link['target'] == '') ? '' : 'target="'.$link['target'].'"';
+
+
+  $link_bx = ($link_bx=='||') ? '' : $link_bx;
+  $link_bx = vc_build_link( $link_bx );
+  $b_link = $link_bx['url'];
+  $b_title = ($link_bx['title'] == '') ? '' : 'title="'.$link_bx['title'].'"';
+  $b_target = ($link_bx['target'] == '') ? '' : 'target="'.$link_bx['target'].'"';
+
   ob_start()
   ?>
+    <?php echo $link_box == "yes" ? '<a href="'. $b_link .'" style="text-decoration: none">' : '' ?>
     <?php echo $check == "yes" ? '<div class="toggle-content">' : '' ?>
       <section class="light-box" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<?php echo $image_src[0] ?>)">
         <div class="light-angled">
@@ -57,6 +68,7 @@ function light_box_func($atts, $content = null){
         </section>
       <?php echo $check == "yes" ? '</div>' : '' ?>
     <?php } ?>
+    <?php echo $link_box == "yes"? '</a>' : '' ?>
   
   <?php
   $r = ob_get_clean();
@@ -129,8 +141,23 @@ function light_box_map()
     ),
     array(
       'type' => 'vc_link',
-      'heading' => __( 'Content', 'my-text-domain' ),
+      'heading' => __( 'Content Button', 'my-text-domain' ),
       'param_name' => 'link',
+    ),
+    array(
+      'type' => 'dropdown',
+      'heading' => __( 'Full Box Link', 'my-text-domain' ),
+      'description' => __( 'Should entire box link to a page', 'my-text-domain' ),
+      "value" => array(
+        'No'   => 'no',
+        'Yes'   => 'yes',
+      ),
+      'param_name' => 'link_box',
+    ),
+    array(
+      'type' => 'vc_link',
+      'heading' => __( 'Entire Box Link', 'my-text-domain' ),
+      'param_name' => 'link_bx',
     ),
   )));
 }

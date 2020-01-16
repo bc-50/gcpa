@@ -1,10 +1,17 @@
 header {
-  background-size: cover;
-  background-position: center center;
-  padding: 0 0 56px;
-  position: relative;
-  z-index: 10;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+
+  @media (max-width: 500px) {
+    font-size: .8em;
+  }
+
+  &.main {
+    background-size: cover;
+    background-position: center center;
+    padding: 0 0 56px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+  }
 
   .menu {
     padding: 3% 0;
@@ -12,6 +19,20 @@ header {
 
   nav.navbar {
     padding: 0.5rem 0;
+
+    .hamburger-inner,
+    .hamburger-inner:after,
+    .hamburger-inner:before {
+      background-color: #86c846;
+    }
+
+    .hamburger.is-active {
+
+      .hamburger-inner:after,
+      .hamburger-inner:before {
+        background-color: #86c846;
+      }
+    }
 
     .navbar-nav {
       width: 100%;
@@ -24,6 +45,10 @@ header {
           justify-content: center;
           list-style: none;
           padding: 0;
+
+          @media (max-width: 991px) {
+            flex-direction: column;
+          }
 
           li {
             &.active {
@@ -50,10 +75,14 @@ header {
             a {
               color: #fff;
               text-transform: uppercase;
-              font-size: 1em;
+              font-size: .9em;
               font-weight: 700;
               transition: all 0.3s ease-out;
               padding: 0;
+
+              @media (max-width: 991px) {
+                font-size: 1.1em;
+              }
 
               &:hover {
                 color: #86c846;
@@ -64,38 +93,76 @@ header {
               }
 
               &::after {
-                content: "|";
-                margin: 0 0.8rem;
+                @media (min-width: 992px) {
+
+                  content: "|";
+                  margin: 0 0.8rem;
+                }
+
               }
             }
 
             &.menu-item {
               &> {
                 .dropdown-menu {
-                  display: flex;
-                  opacity: 0;
                   z-index: -1;
                   background-color: #86c846;
                   margin-top: 15px;
                   left: -50%;
                   border-radius: initial;
-                  padding: 25px 25px;
+                  padding: 25px;
                   min-height: 30px;
+                  pointer-events: none;
 
-                  li.active a {
+                  @media (max-width: 991px) {
+                    background-color: transparent;
+                    padding: 10px;
+                    border: none;
+                    margin-top: 0;
+                    left: auto;
+                    display: block;
+
+                    li a {
+                      font-size: .85em;
+
+                    }
+                  }
+
+                  @media (min-width: 992px) {
+                    opacity: 0;
+                    display: flex;
+
+                    &:hover {
+
+                      .dropdown-menu {
+                        opacity: 1;
+                        z-index: 2;
+                        pointer-events: all;
+                      }
+
+                    }
+                  }
+
+                  .dropdown-menu {
+                    flex-direction: column;
+                  }
+
+                  li.active>a {
                     color: #15296B;
                   }
 
-                  &::before {
-                    content: "";
-                    width: 100%;
-                    height: 20px;
-                    position: absolute;
-                    top: -20px;
-                    background-image: url('../imgs/nav-arrow.svg');
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: 25% 0%;
+                  @media (min-width: 992px) {
+                    &::before {
+                      content: "";
+                      width: 100%;
+                      height: 20px;
+                      position: absolute;
+                      top: -20px;
+                      background-image: url('../imgs/nav-arrow.svg');
+                      background-size: contain;
+                      background-repeat: no-repeat;
+                      background-position: 25% 0%;
+                    }
                   }
 
                   .dropdown-item {
@@ -112,6 +179,7 @@ header {
                   .dropdown-menu {
                     opacity: 1;
                     z-index: 2;
+                    pointer-events: all;
                   }
                 }
               }
@@ -131,6 +199,10 @@ header {
         rgba(21, 41, 107, 0.75) 62%,
         transparent 62.45%);
 
+    @media (max-width: 767px) {
+      background: linear-gradient(180deg, rgba(21, 41, 107, .75) 54%, transparent 54.45%);
+    }
+
     .header-spacing {
       padding: 2.5% 0 3.42%;
     }
@@ -138,19 +210,41 @@ header {
     .logo-row {
       justify-content: space-between;
 
+      .logo-wrapper {
+        svg {
+          width: 100%;
+        }
+      }
+
       .members-button {
         @include button(#fff, #86c846);
         justify-content: flex-end;
 
         a {
           min-width: 225px;
-          width: 81.5%;
+          width: 89.5%;
           font-size: 1.25em;
           display: flex;
           align-items: center;
           justify-content: space-between;
           padding: 9px 33px;
+
+          &:hover {
+            color: #86c846;
+          }
         }
+
+        @media (max-width: 991px) {
+          padding: 5% 15px;
+        }
+
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 0.8em;
       }
     }
 
@@ -164,6 +258,10 @@ header {
           display: flex;
           justify-content: flex-end;
           margin: 0;
+
+          @media (max-width: 767px) {
+            justify-content: center;
+          }
 
           li {
             width: 28px;
@@ -214,6 +312,10 @@ header {
         font-size: 2.5em;
         display: inline-block;
       }
+
+      @media (max-width: 400px) {
+        font-size: 0.7em;
+      }
     }
   }
 
@@ -226,9 +328,16 @@ header {
 
       a {
         border-width: 3px;
-        max-width: 190px;
+        max-width: 200px;
         width: 80%;
+
+        &:hover {
+          color: #86c846;
+        }
       }
     }
   }
 }
+
+
+.dropdown-menu {}

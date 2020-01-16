@@ -1,12 +1,12 @@
 <footer>
  <div class="container">
-   <div class="row justify-content-end">
+   <div class="row justify-content-end member-row">
      <div class="col-lg-5">
        <div class="member-wrapper">
-         <h3><?php echo get_field('member_text') ?></h3>
+         <h3><?php echo get_field('member_text') ? get_field('member_text') : 'Why Not Become gcpa Member' ?></h3>
        </div>
        <div class="button-wrapper">
-         <a href="#">Find Out More</a>
+         <a href="<?php echo esc_url(site_url('membership')); ?>">Find Out More</a>
        </div>
      </div>
    </div>
@@ -14,7 +14,7 @@
      <div class="row logo-row">
       <div class="col-lg-3">
         <div class="footer-logo">
-        <a href="<?php echo esc_url(site_url()) ?>"><?php logo_svg('foot') ?></a>
+        <a href="<?php echo esc_url(site_url('')) ?>"><?php logo_svg('foot') ?></a>
         </div>
       </div>
      </div>
@@ -48,9 +48,9 @@
         <div class="social">
           <h4>Connect With Us:</h4>
           <ul>
-            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/gcpagroup/"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://twitter.com/gcpagroup"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://www.instagram.com/gloucestershirecareproviders "><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
       </div>

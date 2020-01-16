@@ -1,5 +1,5 @@
 .up-events {
-  background-color: #ededed;
+  background-color: rgba(237, 237, 237, 0.5);
   padding: 3.8% 0;
 
   .title-row {}
@@ -13,9 +13,14 @@
   .container-fluid {
     width: 67%;
 
+    @media (min-width: 992px) {
+      min-width: 905px;
+    }
+
     .col-lg-4 {
       padding: 0 10px;
       margin: 2.3% 0px;
+      min-width: 300px;
     }
   }
 
@@ -75,6 +80,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        min-width: 92px;
 
         .date-wrapper {
           text-align: center;
@@ -103,6 +109,7 @@
         display: flex;
         flex-direction: column;
         width: 49.2%;
+        min-width: 155px;
 
         .title-wrapper {
           min-height: 73px;
@@ -127,13 +134,15 @@
           margin-top: auto;
           @include button(#86c846, #86c846);
           justify-content: flex-start;
-
-          a {
-            &:hover {
-              color: #fff;
-            }
-          }
         }
+      }
+
+      @media (max-width: 1499px) and (min-width: 992px) {
+        font-size: 0.8em;
+      }
+
+      @media (max-width: 600px) {
+        font-size: 0.8em;
       }
     }
   }
@@ -152,15 +161,14 @@
       font-size: 1.25em;
       padding: 4px 30px;
 
-      &:hover {
-        color: #fff;
-      }
     }
   }
 }
 
 
 .single-event {
+  padding: 3.6% 0 2.3%;
+
   .title-wrapper {
     h2 {
       text-transform: uppercase;
@@ -168,6 +176,7 @@
       color: #15296B;
       font-weight: 700;
       padding-right: 4%;
+      margin: 0;
     }
   }
 
@@ -177,6 +186,7 @@
 
       .text-wrapper {
         margin: 8.6% 0;
+        width: 40%;
 
         h3 {
           margin: 0;
@@ -201,6 +211,8 @@
         overflow: hidden;
         max-width: 308px;
         width: 100%;
+        height: 100%;
+        pointer-events: none;
 
         img {}
       }
@@ -217,4 +229,123 @@
       }
     }
   }
+
+  .map-wrapper {
+    background-color: rgba(99, 99, 99, 0.1);
+    padding: 7% 3% 3%;
+    margin: 8% 0;
+
+    p {
+      display: flex;
+      font-size: 1.125em;
+      font-weight: 700;
+      color: #15296B;
+
+      &::before {
+        content: url('../imgs/pin.png');
+        margin: auto 22px auto 10px;
+      }
+    }
+
+    iframe {
+      width: 100%;
+      min-height: 309px;
+      border: 5px solid #fff;
+    }
+  }
+}
+
+.book-tickets {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  justify-content: flex-end;
+
+  .main-book {
+    width: 88%;
+    padding: 5% 5.7% 0;
+    background: linear-gradient(171deg, #15296B 7em, rgba(99, 99, 99, .1) 7.1em);
+    display: flex;
+    flex-direction: column;
+
+    .tribe-link-view-attendee {
+      order: 2;
+    }
+
+    .title-wrapper {
+      margin-bottom: 78px;
+
+      h2 {
+        color: #86C846;
+        padding: 0;
+        margin-bottom: 6px;
+      }
+    }
+
+    .tribe-tickets-form-row {
+      margin: 5% 0;
+    }
+
+    .tribe-events-tickets {
+      background: transparent;
+
+      tr:not(:first-child) {
+        border: none;
+      }
+
+      td {
+        vertical-align: top;
+        padding: 0px 10px;
+
+        &.tickets_name {
+          max-width: 167px;
+          color: #15296B;
+          font-weight: 500;
+          font-size: 14px;
+        }
+
+        &.tickets_price {
+          color: #15296B;
+          font-size: 14px;
+          font-style: normal;
+        }
+      }
+
+      td.woocommerce {
+        border: none;
+        padding: 0;
+
+        input[type=number] {
+          max-width: 49px;
+          background: none;
+          border: 1px solid #707070;
+        }
+
+        &.add-to-cart {
+          padding: 11% 0;
+        }
+      }
+
+      .tribe-tickets-remaining {
+        display: none;
+      }
+
+      .button-wrapper {
+        @include button(#86C846, #86C846);
+        justify-content: flex-start;
+
+        button {
+          background-color: transparent;
+          margin: 0 !important;
+        }
+
+        .woocommerce.add-to-cart button.tribe-button {
+          border-radius: 0px;
+        }
+      }
+    }
+  }
+}
+
+.login-wrapper {
+  @include button(#15296B, #15296B);
 }

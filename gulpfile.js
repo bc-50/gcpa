@@ -19,6 +19,7 @@ gulp.task('watch', function () {
   });
   watch('./js/*.js', gulp.series('scripts'));
   watch('./styles/**/*.scss', gulp.series('styles'));
+  watch('./backend-styles/*.scss', gulp.series('admin-styles'));
 
   watch('./**/*.php', function (done) {
     browserSync.reload();
@@ -40,10 +41,11 @@ gulp.task('load', function () {
 });
 
 gulp.task('styles-o', function () {
-  watch('./styles/**/*.scss', gulp.series('styles'));
+  watch(['./styles/**/*.scss', '!./styles/backend-styles/*.scss'], gulp.series('styles', 'admin-styles'));
 });
 
 gulp.task('styles', function (done) {
+
   return gulp.src('./styles/main.scss')
     .pipe(sass())
     .pipe(postcss([autopre]))
@@ -53,6 +55,20 @@ gulp.task('styles', function (done) {
       basename: 'main.min'
     }))
     .pipe(gulp.dest('./styles'))
+    .pipe(browserSync.stream());
+  done();
+});
+
+gulp.task('admin-styles', function (done) {
+  return gulp.src('./backend-styles/admin-main.scss')
+    .pipe(sass())
+    .pipe(postcss([autopre]))
+    .pipe(gulp.dest('./backend-styles'))
+    .pipe(postcss([csswring]))
+    .pipe(rename({
+      basename: 'admin-main.min'
+    }))
+    .pipe(gulp.dest('./backend-styles'))
     .pipe(browserSync.stream());
   done();
 });

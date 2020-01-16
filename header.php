@@ -9,8 +9,22 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWN3F5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<?php
 
-<header style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo tribe_is_event_query() ? get_theme_file_uri('imgs/events.jpg') : get_field('header_image') ?>)">
+if (tribe_is_event_query()) { 
+  $src = get_theme_file_uri('imgs/events.jpg');
+} elseif (get_field('header_image')) { 
+  $src = get_field('header_image');
+} else {
+  $src = get_theme_file_uri('imgs/bw.jpg');
+} ?>
+
+<header class="main" style="background-image: linear-gradient(45deg, rgba(0,0,0,.5), rgba(0,0,0,.5)), url(<?php echo $src  ?>)">
+
   <div class="container">
     <div class="row menu">
       <div class="col">
@@ -40,14 +54,14 @@
     <div class="header-spacing">
       <div class="container">
         <div class="row logo-row">
-          <div class="col-lg-5">
+          <div class="col-md-5">
             <div class="gcpa-logo">
               <div class="logo-wrapper">
                 <a href="<?php echo esc_url(site_url()) ?>"><?php logo_svg('head') ?></a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
+          <div class="col-md-4">
             <div class="members-button">
             <a href="<?php echo esc_url(site_url('members-login')) ?>"><i class="fas fa-user"></i> Members Login</a>
             </div>
@@ -57,9 +71,9 @@
           <div class="col-lg-2">
             <div class="social">
               <ul>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="https://twitter.com/gcpagroup"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/gcpagroup/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.instagram.com/gloucestershirecareproviders "><i class="fab fa-instagram"></i></a></li>
               </ul>
             </div>
           </div>
@@ -76,6 +90,8 @@
               echo get_field('header_text');
             } elseif (tribe_is_event_query() && !get_field('header_text')) {
               echo 'Upcoming Events';
+            } elseif (is_archive() && !get_field('header_text')) {
+              echo str_replace('Archives:','',get_the_archive_title());
             } else { 
               echo get_the_title();
             } ?>
@@ -92,7 +108,7 @@
       <div class="row button-row">
         <div class="col-lg-4">
           <div class="button-wrapper">
-            <a href="#">Find Care</a>
+            <a target="_blank" href="https://www.carechoices.co.uk/browse/south-west/gloucestershire/gloucester/?radius=30 ">Find Care</a>
           </div>
         </div>
       </div>

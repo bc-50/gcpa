@@ -21,7 +21,6 @@ function staff_box_func($atts, $content = null){
       </section>
       <?php if ($check == 'yes') { ?>
         <section class="staff-reveal reveal-box <?php echo $mem ?>">
-          <div class="grey-space"></div>
           <div class="inner-wrapper">
             <div class="content-wrapper <?php echo $tcolor . " " . $case ?>">
               <h2><?php echo $title ?></h2>
@@ -41,7 +40,7 @@ add_action('vc_before_init', 'staff_box_map');
 function staff_box_map()
 {
   vc_map(array(
-    'name' => __('Members Box', 'my-text-domain'),
+    'name' => __('Staff Box', 'my-text-domain'),
     'base' => 'staff_box',
     "content_element" => true,
     'category' => __( 'Brace Elements', 'my-text-domain'),
