@@ -157,9 +157,15 @@ add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 }
 add_action('wp_ajax_nopriv_membership_selection', 'membership_selection');
 add_action('wp_ajax_membership_selection', 'membership_selection'); */
+<<<<<<< HEAD
 
 
 
+=======
+
+
+
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
   /* More Form Fields */
 
 function wooc_validate_extra_register_fields( $username, $email, $validation_errors ) {
@@ -354,6 +360,7 @@ function create_type_taxonomy (){
     ),
   ));
 }
+<<<<<<< HEAD
 
 function sv_conditional_email_recipient( $recipient, $order ) {
 	// Bail on WC settings pages since the order object isn't yet set yet
@@ -400,3 +407,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 
 add_action('wp_head', 'additional_head');
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373

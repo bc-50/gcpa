@@ -43,8 +43,5 @@ function nested_container_map()
     class WPBakeryShortCode_nested_container extends WPBakeryShortCodesContainer {
     }
   }
-/*   if ( class_exists( 'WPBakeryShortCode' ) ) {
-    class WPBakeryShortCode_plain_content extends WPBakeryShortCode {
-    }
-  }   */
+
 }

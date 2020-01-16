@@ -241,6 +241,18 @@ header {
         @media (max-width: 767px) {
           justify-content: center;
         }
+
+        @media (max-width: 991px) {
+          padding: 5% 15px;
+        }
+
+        @media (max-width: 767px) {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 1199px) {
+        font-size: 0.8em;
       }
 
       @media (max-width: 1199px) {

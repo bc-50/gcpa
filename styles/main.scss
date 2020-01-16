@@ -14,11 +14,19 @@
 
   @media (min-width: 992px) {
     flex-direction: row;
+<<<<<<< HEAD
 
     &> :nth-child(odd) {
       width: 50%;
     }
 
+=======
+
+    &> :nth-child(odd) {
+      width: 50%;
+    }
+
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
     &> :nth-child(even) {
       width: 50%;
     }
@@ -176,9 +184,12 @@
 }
 
 .main-goals {
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
 
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
   @media (max-width: 991px) {
     font-size: 0.9em;
   }
@@ -432,6 +443,7 @@
     }
 
     .upper p {
+<<<<<<< HEAD
 
       a {
         transition: all .5s ease;
@@ -441,11 +453,16 @@
         }
       }
 
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
       @media (max-width: 1199px) {
         font-size: 12px !important;
       }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
 
     .content-wrapper {
       padding: 0 15px;
@@ -512,8 +529,13 @@
 
     @media (min-width:1200px) {
       max-width: 345px;
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
       &:nth-of-type(3n) {
         margin-right: 0;
       }
@@ -728,6 +750,7 @@ form {
       }
     }
   }
+<<<<<<< HEAD
 }
 
 
@@ -771,4 +794,6 @@ form {
     background-repeat: no-repeat;
     display: block;
   }
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
 }

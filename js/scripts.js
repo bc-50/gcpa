@@ -42,7 +42,6 @@ jQuery(function ($) {
     $(target).children('.dropdown-menu').slideDown();
   });
 
-
   $(".single-gallery-image").lazy();
   if ($('.admin-image-wrapper > img').length) {
     console.log($('.admin-image-wrapper > img'));

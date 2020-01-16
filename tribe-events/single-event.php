@@ -84,7 +84,10 @@ if (tribe_get_venue()) {
 					<div class="col-lg-6">
 						<div class="book-tickets">
 							<div class="main-book">
+<<<<<<< HEAD
 								<div class="ticket-bg"></div>
+=======
+>>>>>>> 3a08c6ab2a7ed7c520fb90b6d68f8fbe2ee42373
 								<?php do_action( 'tribe_events_single_event_before_the_meta' ) ?>
 							</div>
 						</div>
