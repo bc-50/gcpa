@@ -18,7 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 	 if (!isset($events)) {
 			$events = tribe_get_events( [ 
 				'posts_per_page' => 3,
-				'order' => 'desc',
+				'order' => 'asc',
+				'start_date' => 'now'
 			] );
 		}
 	
@@ -32,11 +33,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php if(count($events) > 0):
 									foreach ($events as $event): 
 									$the_date = array();
+									
 									if (isset($event->event_date)) {
 										$date=date_create($event->event_date);
 										array_push($the_date, date_format($date,"M"), date_format($date,"d"));
 									} 
-									
+
 									?>
 										<div class="col-lg-4">
 											<div class="event-wrapper">
@@ -55,9 +57,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 															<h3><?php echo $event->post_title ?></h3>
 														</div>
 														<div class="content-wrapper">
-                            	<?php echo $event->post_excerpt ? $event->post_excerpt : wp_trim_words($event->post_content, 14) ?>
+                            	<?php echo $event->post_excerpt ? wp_trim_words($event->post_excerpt, 27) : wp_trim_words($event->post_content, 14) ?>
 														</div>
-														<div class="button-wrapper">
+														<div class="button-wrapper mt-3">
 															<a href="<?php echo esc_url(get_the_permalink($event)) ?>">Book Now</a>
 														</div>
 													</div>

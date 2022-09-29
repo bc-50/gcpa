@@ -3,4 +3,189 @@
     Author: Brace Creative Agency
     Description: Custom theme
     */
-    @import url("../brace-gcpa-theme/styles/main.min.css");
+@import url("../brace-gcpa-theme/styles/main.min.css");
+
+
+.news-posts .row:not(:first-of-type) {
+    padding: 4.5% 0;
+}
+
+.light-box .light-angled h3{
+    padding: 0 10px;
+}
+
+.rmv-woo + .woocommerce{
+    display: none;
+}
+
+.account-content{
+    padding-bottom: 2em;
+}
+
+.log-content{
+    display: none !important;
+}
+
+body.logged-in .log-content{
+    display: block !important;
+}
+
+body.logged-in .not-log-content{
+    display: none !important;
+}
+
+
+.checkout-error{
+    padding-top: 3.25%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+}
+
+.checkout-error .norm-button-wrapper a{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.woocommerce-lost-password .not-log-content, body.woocommerce-lost-password .log-content{
+    display: none !important;
+}
+
+.angle-container p a{
+    display: inline-block;
+}
+
+
+.billing-note{
+    font-size: 0.875em;
+    padding-left: 4px;
+    opacity: .85;
+}
+
+.no-team-msg{
+    margin: 0;
+    text-align: center;
+}
+
+.no-team-msg + button{
+    display: none;
+}
+
+.choose-memebership label{
+    margin-right: auto;
+    font-family: 'Montserrat',sans-serif;
+    font-weight: 600;
+    color: #15296b;
+    font-size: 1em;
+}
+
+.archive #tribe-events{
+    padding: 0;
+}
+
+.choose-memebership .green-content.reveal-box #membeship-choice-care, .choose-memebership .green-content.reveal-box #membeship-choice-dom{
+    margin: 1em 0 2.5em;
+}
+
+.team-name{
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid #15296b;
+}
+
+.choose-memebership .green-content .inner-wrapper{
+    width: auto;
+    max-width: 405px;
+}
+
+.woocommerce-account-my-teams, .my-membership-section{
+    overflow: auto;
+}
+
+.woocommerce .my-account table.shop_table{
+    width: auto;
+}
+
+.woocommerce-account-join-team{
+    padding-top: 3.5em;
+}
+
+.woocommerce-account-join-team > p{
+    text-align: center;
+}
+
+body.member-bg{
+    background-color: rgba(237,237,237,0.5);
+}
+
+body.member-bg.logged-in .woocommerce{
+    padding-bottom: 4em;
+}
+
+body:not(.member-bg) .woocommerce-account-join-team{
+    padding-bottom: 4em;
+}
+
+p:empty{
+    display: none;
+}
+
+.woocommerce-account .woocommerce-MyAccount-navigation{
+    padding-bottom: 3em;
+}
+
+
+
+.main-wrap .wpb_text_column{
+    margin-bottom: 0;
+}
+
+body .woocommerce #join-team-form{
+    display: flex;
+    justify-content: center;
+}
+
+body .woocommerce #join-team-form button{
+    color: #15296b;
+    border: 2px solid #15296b;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 30px;
+    transition: all .4s ease-in-out;
+    text-align: center;
+    background: 0 0;
+}
+
+body .woocommerce #join-team-form button:hover{
+    background-color: #15296b;
+    color: #fff;
+    text-decoration: none;
+}
+
+@media (max-width: 767px) {
+    .billing-note{
+        font-size: .75em;
+    }
+}
+
+form h3 {
+    margin-bottom: 3%;
+    padding-left: 4px;
+}
+
+@media (max-width: 767px) {
+    header .gradient-header .logo-row .members-button a{
+        max-width: 260px;
+    }
+}
+
+@media(min-width: 992px){
+    .angle-container{
+        width: 40%;
+    }
+
+    .choose-memebership .green-content .inner-wrapper{
+        width: 405px;
+    }
+}

@@ -1,0 +1,124 @@
+.cart-wrapper {
+  background-color: #ededed;
+  padding: 5% 0 2.5%;
+
+  .product-tables {
+    .container {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    .row {
+      background-color: #fff;
+
+      &:first-of-type {
+        background-color: #15296b;
+        padding: 2.45% 0;
+
+        h3 {
+          color: #ffffff;
+          font-weight: 400;
+          font-size: 1.25em;
+          margin: 0;
+          text-align: center;
+          text-transform: capitalize;
+
+          &.total {
+            text-align: left;
+            margin: 0 -15px;
+            padding: 4% 0 4% 60px;
+          }
+        }
+      }
+
+      &.cart_item {
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #707070;
+        }
+
+        .col {
+          &:not(:last-of-type) {
+            border-right: 1px solid #707070;
+          }
+        }
+
+        .cell-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
+          padding: 11% 0;
+
+          .remove-item {
+            margin: 0 15px;
+
+            i {
+              color: #636363;
+            }
+
+            &:hover {
+              opacity: .7;
+            }
+          }
+
+          .quantity {
+
+
+            input {
+              border: 2px solid #15296b;
+              width: 5.35em;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+
+
+      .left {
+        padding-left: 60px;
+      }
+
+    }
+
+
+  }
+
+  .proceed-to-checkout {
+    margin: 9% -15px;
+    @include button(#86c846, #86c846);
+    justify-content: flex-end;
+  }
+}
+
+.total-column {
+  margin: 0 auto;
+
+  @media (min-width: 992px) {
+    margin: 0 0 0 auto;
+  }
+
+  .cart-total {
+    margin: 0 -15px;
+
+    div {
+      display: flex;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid #707070;
+      }
+
+      p {
+        width: 50%;
+        margin: 0;
+        padding: 4% 0;
+
+        &:not(:first-of-type) {
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+.cart-collaterals {
+  margin: 20px 0;
+}

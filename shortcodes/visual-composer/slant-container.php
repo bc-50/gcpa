@@ -2,8 +2,11 @@
 function slant_func($atts, $content = null){
   $r = '';
   extract( shortcode_atts( array(
-    'title' => null,
+    'phone' => null,
+    'email' => null,
   ), $atts ) );
+	$tel = str_replace(" ", "", $phone);
+	$tel = preg_replace("/^0/", "+44",$tel);
   $r ='
     <section class="angle-container">
       <div class="angle-clip">
@@ -11,11 +14,11 @@ function slant_func($atts, $content = null){
           <div class="text-fixed">
             <div class="pad-link">
               <div class="phone">
-                <p class="">Call us on <a href="tel:01242395470" class="">01242 395 470</a></p>
+                <p class="">Call us on <a href="tel:'. $tel .'">'. $phone .'</a></p>
               </div>
               <div class="seperator-wrapper green"><div class="seperator"></div></div>
               <div class="email">
-                <a href="mailto:care@gcpa.co.uk">care@gcpa.co.uk</a>
+                <a href="mailto:care@gcpa.co.uk">'. $email .'</a>
               </div>
             </div>
           </div>
@@ -37,13 +40,13 @@ function slant_map()
     'params' => array(
     array(
       'type' => 'textfield',
-      'heading' => __( 'Title', 'my-text-domain' ),
-      'param_name' => 'title',
+      'heading' => __( 'Phone', 'my-text-domain' ),
+      'param_name' => 'phone',
     ),
     array(
-      'type' => 'textarea_html',
-      'heading' => __( 'Content', 'my-text-domain' ),
-      'param_name' => 'content',
+      'type' => 'textfield',
+      'heading' => __( 'Email', 'my-text-domain' ),
+      'param_name' => 'email',
     ),
   )));
 }

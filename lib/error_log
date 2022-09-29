@@ -1,0 +1,4 @@
+[04-Oct-2020 19:31:43 UTC] PHP Fatal error:  Uncaught Error: Class 'Walker_Nav_Menu' not found in /home/gcpaco/public_html/wp-content/themes/brace-gcpa-theme/lib/class-wp-bootstrap-navwalker.php:29
+Stack trace:
+#0 {main}
+  thrown in /home/gcpaco/public_html/wp-content/themes/brace-gcpa-theme/lib/class-wp-bootstrap-navwalker.php on line 29

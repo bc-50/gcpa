@@ -5,34 +5,36 @@ function dom_care_func($atts, $content = null){
     'parent' => null,
   ), $atts ) );
   ob_start();
-
-
-
-
   $products = new WP_Query( array( 
     'post_type'   => array('product', 'product_variation'),
     'post_per_page' => -1,
     'order' => 'ASC',
     'orderby' => 'meta_value',
     'meta_key' => '_price'
-  ) );
+  ) ); ?>
 
-
-  foreach ($products->posts as $product) {
-    if ($product->post_excerpt != '') {
-    $att = wc_get_product_variation_attributes( $product->ID );
-    $key = key($att);
-    $taxonomy = str_replace('attribute_','',$key);
-    $product_terms = get_terms(array(
-      'taxonomy' => $taxonomy,
-    ));?>
-      <div class="d-b add-cart" data-cart="<?php echo site_url('cart') ?>/?add-to-cart=<?php echo $product->post_parent ?>&variation_id=<?php echo $product->ID ?>&<?php echo $key ?>=<?php echo $att[$key] ?>"><?php echo $product->post_title ?></div>
-    <?php 
-    }
-    
-  }
-
-  
+  <select name="choice" id="membeship-choice">
+    <?php
+    foreach ($products->posts as $product) {
+      if ($product->post_excerpt != '') {
+      $att = wc_get_product_variation_attributes( $product->ID );
+      $key = key($att);
+      $taxonomy = str_replace('attribute_','',$key);
+      $product_terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+      ));
+      // $target = site_url('cart') . '/?add-to-cart=' . $product->post_parent. '&variation_id=' . $product->ID. '&' .$key . '=' . $att[$key]; 
+      $target = 0; 
+      ?>
+        <option class="d-b add-cart" value="<?php echo $target ?>"><?php echo $product->post_title ?></option>
+        
+      <?php 
+      }
+    } ?>
+  </select>
+  <button class="add-cart">Add To Cart</button>
+  <?php
+ wp_reset_postdata(); 
   $r = ob_get_clean();
   return $r;
 }

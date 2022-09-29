@@ -14,7 +14,8 @@ function upcoming_func($atts, $content = null){
   if (!isset($events)) {
     $events = tribe_get_events( [ 
       'posts_per_page' => 3, 
-			'order' => 'desc',
+			'order' => 'asc',
+      'eventDisplay' => 'upcoming'
       ] );
   }
 
@@ -24,7 +25,7 @@ function upcoming_func($atts, $content = null){
     <section class="up-events">
       <div class="container-fluid">
         <div class="row justify-content-center title-row">
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="title-wrapper">
               <h2>
                 Upcoming Events
@@ -86,6 +87,7 @@ function upcoming_func($atts, $content = null){
         </div>
       </div>
     </section>
+
   <?php
   $r= ob_get_clean();
   return $r;
