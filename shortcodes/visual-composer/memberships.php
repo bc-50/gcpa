@@ -23,123 +23,133 @@ function memberships_func($atts, $content = null){
 		'post_parent' => 340
   ) );
   ob_start(); ?>
-<div class="light-group choose-memebership"  ng-app ng-init="name=''; cbc_name=''">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="toggle-content">
-          <section class="light-box" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(//localhost:3000/gcpa/wp-content/uploads/2019/11/community.jpg)">
-            <div class="light-angled">
-              <div class="title">
-                <h3>Bed Based Care</h3>
-                <div class="seperator-wrapper">
-                  <div class="seperator"></div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="green-content reveal-box">
-						<div class="inner-wrapper">
-							<div class="title-wrapper">
-								<h2>
-                  Bed Based Care
-									<div class="seperator-wrapper green">
-										<div class="seperator"></div>
-									</div>
-								</h2>
-							</div>
-              <label>Name Of Organisation</label>
-              <input type="text" class="team-name" ng-model="name">
-							<select name="choice" id="membeship-choice-care">
-								<?php
-								foreach ($care_home->posts as $other_product) {
-									if ($other_product->post_excerpt != '') {
-									$att = wc_get_product_variation_attributes( $other_product->ID );
-									$key = key($att);
-									$taxonomy = str_replace('attribute_','',$key);
-									$product_terms = get_terms(array(
-										'taxonomy' => $taxonomy,
-									));
-                  $target = site_url('cart') . '/?add-to-cart=' . $other_product->post_parent. '&variation_id=' . $other_product->ID. '&' .$key . '=' . $att[$key]; 
-                  // $target = 0;
-                  if (is_page('rtraasf')) {
-                    $target = site_url('cart') . '/?add-to-cart=' . $other_product->post_parent. '&variation_id=' . $other_product->ID. '&' .$key . '=' . $att[$key]; 
-                  }
-                  ?>
-                  
-									<option class="d-b add-cart" value="<?php echo $target ?>&team_name={{name}}"><?php echo str_ireplace("Bed Based Care","",$other_product->post_title) ?> - £<?php echo wc_get_product( $other_product->ID )->get_price() ?></option>
-										
-									<?php 
+<div class="light-group choose-memebership" ng-app ng-init="name=''; cbc_name=''">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="toggle-content">
+                    <section class="light-box"
+                        style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(//localhost:3000/gcpa/wp-content/uploads/2019/11/community.jpg)">
+                        <div class="light-angled">
+                            <div class="title">
+                                <h3>Bed Based Care</h3>
+                                <div class="seperator-wrapper">
+                                    <div class="seperator"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="green-content reveal-box">
+                        <div class="inner-wrapper">
+                            <div class="title-wrapper">
+                                <h2>
+                                    Bed Based Care
+                                    <div class="seperator-wrapper green">
+                                        <div class="seperator"></div>
+                                    </div>
+                                </h2>
+                            </div>
+                            <label>Name Of Organisation</label>
+                            <input type="text" class="team-name" ng-model="name">
+                            <select name="choice" id="membeship-choice-care">
+                                <?php
+								    foreach ($care_home->posts as $other_product) {
+								    	if ($other_product->post_excerpt != '') {
+								    	$att = wc_get_product_variation_attributes( $other_product->ID );
+								    	$key = key($att);
+								    	$taxonomy = str_replace('attribute_','',$key);
+								    	$product_terms = get_terms(array(
+								    		'taxonomy' => $taxonomy,
+								    	));
+                                          $target = site_url('cart') . '/?add-to-cart=' . $other_product->post_parent. '&variation_id=' . $other_product->ID. '&' .$key . '=' . $att[$key]; 
+                                          // $target = 0;
+                                          if (is_page('rtraasf')) {
+                                            $target = site_url('cart') . '/?add-to-cart=' . $other_product->post_parent. '&variation_id=' . $other_product->ID. '&' .$key . '=' . $att[$key]; 
+                                    }
+                                ?>
+                                <option class="d-b add-cart" value="<?php echo $target ?>&team_name={{name}}">
+                                    <?php echo str_ireplace("Bed Based Care","",$other_product->post_title) ?> -
+                                    £<?php echo wc_get_product( $other_product->ID )->get_price() ?></option>
+
+                                <?php 
 									}
 								} 
 								wp_reset_postdata();
 								?>
-							</select>
-							<div class="proceed-wrapper">
-								<p ng-if="name==''" class="no-team-msg">An Organisation Name Is Needed To Select A Membership</p>
-								<button class="add-cart-care">Choose Membership</button>
-							</div>
-            </div>
-          </section>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="toggle-content">
-          <section class="light-box" style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(//localhost:3000/gcpa/wp-content/uploads/2019/11/community.jpg)">
-            <div class="light-angled">
-              <div class="title">
-                <h3>Community Based Care</h3>
-                <div class="seperator-wrapper">
-                  <div class="seperator" ></div>
+                            </select>
+                            <div class="proceed-wrapper">
+                                <p ng-if="name==''" class="no-team-msg">An Organisation Name Is Needed To Select A
+                                    Membership
+                                </p>
+                                <button class="add-cart-care">Choose Membership</button>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-              </div>
             </div>
-          </section>
-          <section class="green-content reveal-box">
-            <div class="inner-wrapper">
-							<div class="title-wrapper">
-								<h2>
-                  Community Based Care
-									<div class="seperator-wrapper green">
-										<div class="seperator"></div>
-									</div>
-								</h2>
-							</div>
-              <label>Name Of Organisation</label>
-              <input type="text" class="team-name t" ng-model="cbc_name">
-							<select name="choice" id="membeship-choice-dom">
-								<?php
-								foreach ($dom_care->posts as $product) {
-									if ($product->post_excerpt != '') {
-									$att = wc_get_product_variation_attributes( $product->ID );
-									$key = key($att);
-									$taxonomy = str_replace('attribute_','',$key);
-									$product_terms = get_terms(array(
-										'taxonomy' => $taxonomy,
-									));
-                  $target = site_url('cart') . '/?add-to-cart=' . $product->post_parent. '&variation_id=' . $product->ID. '&' .$key . '=' . $att[$key]; 
-                  // $target = 0; 
-                  ?>
-										<option class="d-b add-cart" value="<?php echo $target ?>&team_name={{cbc_name}}"><?php echo str_ireplace("Community Based Care","",$product->post_title) ?> - £<?php echo wc_get_product( $product->ID )->get_price() ?></option>
-									<?php 
-									}
-								} 
-								wp_reset_postdata();
+            <div class="col-lg-6">
+                <div class="toggle-content">
+                    <section class="light-box"
+                        style="background-image: linear-gradient(45deg, rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(//localhost:3000/gcpa/wp-content/uploads/2019/11/community.jpg)">
+                        <div class="light-angled">
+                            <div class="title">
+                                <h3>Community Based Care</h3>
+                                <div class="seperator-wrapper">
+                                    <div class="seperator"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="green-content reveal-box">
+                        <div class="inner-wrapper">
+                            <div class="title-wrapper">
+                                <h2>
+                                    Community Based Care
+                                    <div class="seperator-wrapper green">
+                                        <div class="seperator"></div>
+                                    </div>
+                                </h2>
+                            </div>
+                            <label>Name Of Organisation</label>
+                            <input type="text" class="team-name t" ng-model="cbc_name">
+                            <select name="choice" id="membeship-choice-dom">
+                                <?php
+								    foreach ($dom_care->posts as $product) {
+								        if ($product->post_excerpt != '') {
+								          $att = wc_get_product_variation_attributes( $product->ID );
+								          $key = key($att);
+								          $taxonomy = str_replace('attribute_','',$key);
+								          $product_terms = get_terms(array(
+								          	'taxonomy' => $taxonomy,
+								          ));
+                                      $target = site_url('cart') . '/?add-to-cart=' . $product->post_parent. '&variation_id=' . $product->ID. '&' .$key . '=' . $att[$key]; 
+                                      // $target = 0; 
+                                ?>
+                                <option class="d-b add-cart" value="<?php echo $target ?>&team_name={{cbc_name}}">
+                                    <?php echo str_ireplace("Community Based Care","",$product->post_title) ?> -
+                                    £<?php echo wc_get_product( $product->ID )->get_price() ?>
+                                </option>
+                                <?php 
+								    }
+								    } 
+								    wp_reset_postdata();
 								?>
-							</select>
-							<div class="proceed-wrapper">
-								<p ng-if="cbc_name==''" class="no-team-msg">An Organisation Name Is Needed To Select A Membership</p>
-								<button class="add-cart-care">Choose Membership</button>
-							</div>
+                            </select>
+                            <div class="proceed-wrapper">
+                                <p ng-if="cbc_name==''" class="no-team-msg">An Organisation Name Is Needed To Select A
+                                    Membership
+                                </p>
+                                <button class="add-cart-care">Choose Membership</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
-          </section>
         </div>
-      </div>
     </div>
-  </div>
 </div>
-  
-  <?php
+
+<?php
   $r = ob_get_clean();
   return $r;
 }

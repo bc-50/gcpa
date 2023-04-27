@@ -3,12 +3,13 @@
   extract( shortcode_atts( array(
     'title' => null,
     'tag' => 'h2',
+    'tagTwo' => 'h4',
     'font' => '1.5',
   ), $atts ) );
   $r ='
       <div class="container">
         <div class="row">
-          <div class="col-lg">
+          <div class="col-lg" style="padding-top: 2rem;">
            <div class="simple-title">
               <'. $tag .' style="font-size: '. $font . 'em">
                 '. $title .'
@@ -16,6 +17,12 @@
                   <div class="seperator"></div>
                 </div>
               </'. $tag .'>
+           </div>
+
+            <div class="simple-title">
+              <'. $tagTwo .' style="margin-top: 1.25rem; font-size: 16px;">
+                *Please register or login to order a membership
+              </'. $tagTwo .'>
            </div>
           </div>
         </div>
